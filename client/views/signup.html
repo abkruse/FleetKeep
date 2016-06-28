@@ -1,0 +1,43 @@
+<form class='container' ng-submit='ctrl.addUser(user)'>
+  <div class='row'>
+    <h3 class='col s4 offset-s4'>Sign Up</h3>
+  </div>
+  <div class='row form-group'>
+    <label class='col s4 offset-s3'>First Name</label>
+  </div>
+  <div class='row form-group'>
+    <input ng-model='user.firstName' required=true class='col s4 offset-s3' type='text' />
+  </div>
+  <div class='row form-group'>
+    <label class='col s4 offset-s3'>Last Name</label>
+  </div>
+  <div class='row form-group'>
+    <input ng-model='user.lastName' required=true class='col s4 offset-s3' type='text' />
+  </div>
+  <div class='row form-group'>
+    <label class='col s4 offset-s3'>Job Title</label>
+  </div>
+  <div class='row form-group'>
+    <select class="browser-default col s4 offset-s3" ng-model='user.title' required=>
+      <option value="" disabled selected>Choose your option</option>
+      <option value="Driver">Driver</option>
+      <option value="Maintenance">Maintenance</option>
+      <option value="Supervisor">Supervisor</option>
+    </select>
+  </div>
+  <div class='row form-group'>
+    <label class='col s4 offset-s3'>Email</label>
+  </div>
+  <div class='row form-group'>
+    <input ng-model='user.email' ng-minlength=4 required=true class='col s4 offset-s3' type='text' />
+  </div>
+  <div class='row form-group'>
+    <label class='col s4 offset-s3'>Password</label>
+  </div>
+  <div class='row form-group'>
+    <input ng-model='user.password' ng-minlength=4 required=true class='col s4 offset-s3' type='password' />
+  </div>
+  <div class='row'>
+    <button type='submit' class="waves-effect waves-light btn-large col s2 offset-s4">Submit</button>
+  </div>
+</form>
