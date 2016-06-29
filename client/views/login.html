@@ -1,20 +1,36 @@
+<nav>
+  <div class='nav-wrapper'>
+    <a href='/' class='brand-logo'>FleetKeep</a>
+    <ul class='right hide-on-med-and-down'>
+      <li>
+        <a href='#'>About</a>
+      </li>
+      <li>
+        <a href='/login'>Login</a>
+      </li>
+      <li>
+        <a href='/signup'>Sign Up</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 <form ng-submit='ctrl.login(user)' class='container'>
-  <div class='row'>
+  <div class='row form-group'>
     <h2 class='col s4 offset-s4'>Login</h2>
   </div>
-  <div class='row'>
+  <div class='row form-group'>
     <label class='col s4 offset-s3'>Email</label>
   </div>
-  <div class='row'>
+  <div class='row form-group'>
     <input ng-model='user.email' required=true class='col s4 offset-s3' type='email' />
   </div>
-  <div class='row'>
+  <div class='row form-group'>
     <label class='col s4 offset-s3'>Password</label>
   </div>
-  <div class='row'>
+  <div class='row form-group'>
     <input ng-model='user.password' class='col s4 offset-s3' type='password' required=true/>
   </div>
-  <div class='row'>
+  <div class='row form-group'>
     <button type='submit' class="waves-effect waves-light btn-large col s2 offset-s4">Submit</button>
   </div>
 </form>

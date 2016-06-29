@@ -1,0 +1,34 @@
+<nav>
+  <div class='nav-wrapper'>
+    <a href='/dash' class='brand-logo'>FleetKeep</a>
+    <ul class='right hide-on-med-and-down'>
+      <li>
+        <a href='#'>Settings</a>
+      </li>
+      <li ng-click='ctrl.logout()'>
+        <a href='#'>Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<h3>New Report</h3>
+<form>
+  <div class='row form-group'>
+    <label>Truck Number</label>
+  </div>
+  <div class='row form-group'>
+    <select class="browser-default col s4 offset-s3" ng-model='report.companyNum' required=true>
+      <option value="" disabled selected>Choose your option</option>
+      <!-- make ng-repeat for all truck numbers  -->
+      <option value="12A432">12A432</option>
+      <option value="43S754">43S754</option>
+      <option value="89E126">89E126</option>
+    </select>
+  </div>
+  <div class='row'>
+    <label>Odometer</label>
+  </div>
+  <div>
+    <input type='integer' ng-model='report.odo' required=true/>
+  </div>
+</form>
