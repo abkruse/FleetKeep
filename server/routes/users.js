@@ -3,7 +3,8 @@ var router = express.Router();
 var knex = require('../db/knex');
 var bcrypt = require('bcrypt');
 var path = require('path');
-var jwt = require('json-web-token');
+var jwt = require('jsonwebtoken');
+var token;
 
 function Users() {
   return knex('users');
@@ -58,7 +59,7 @@ router.post('/signup',function(req,res){
     res.status(400).send("Email and Password must be longer than 4 characters")
   }
   else {
-    bcrypt.hash(req.body.password, process.env.SALT_WORK_FACTOR, function(err,hashedPassword){
+    bcrypt.hash(req.body.password, 10, function(err,hashedPassword){
       Users().insert({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -70,6 +71,7 @@ router.post('/signup',function(req,res){
         token = jwt.sign({ id: user[0].id}, process.env.SECRET);
         res.json({token:token, user:listedItems});
       }).catch(function(err){
+        console.log(err);
         res.status(400).send("Email/Password can't be blank and Email must be unique");
       })
     })
@@ -79,11 +81,12 @@ router.post('/signup',function(req,res){
 router.post('/login',function(req,res){
   Users().where('email',req.body.email).first().then(function(user){
     if(!user){
-      res.status(400).send("Invalid email or password");
+      res.status(400).send("Invalid email or password(no user)");
     }
     else {
       bcrypt.compare(req.body.password, user.password, function (err, isMatch) {
         if(err || !isMatch){
+          console.log(err);
           res.status(400).send("Invalid email or password");
         }
         else{

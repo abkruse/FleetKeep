@@ -20,21 +20,25 @@
           url: '/login',
           templateUrl: 'views/login.html',
           controller: 'LoginCtrl as ctrl',
+          preventWhenLoggedIn: true
         })
         .state('report', {
           url: '/report',
           templateUrl: 'views/report.html',
-          controller: 'ReportCtrl as ctrl'
+          controller: 'ReportCtrl as ctrl',
+          restricted: true
         })
         .state('signup', {
           url: '/signup',
           templateUrl: 'views/signup.html',
-          controller: 'LoginCtrl as ctrl'
+          controller: 'LoginCtrl as ctrl',
+          preventWhenLoggedIn: true
         })
         .state('dash', {
           url: '/dash',
           templateUrl: 'views/dash.html',
-          controller: 'DashCtrl as ctrl'
+          controller: 'DashCtrl as ctrl',
+          restricted: true
         });
 
         $locationProvider.html5Mode(true);

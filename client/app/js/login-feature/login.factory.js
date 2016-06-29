@@ -8,7 +8,7 @@
     LoginFactory.$inject = ['$http', '$window'];
 
     function LoginFactory($http, $window) {
-      var url = 'http://localhost:3000';
+      var url = 'http://localhost:3000/users/';
 
       return {
         createCurrentUser: function(user, token) {
@@ -17,20 +17,18 @@
         },
 
         login: function(user) {
-          return $http.post('/login',  user).then( (data) => {
-            const user = data.data.data.data.id;
-            const token = data.data.data.token
-            createCurrentUser(user, token);
+          return $http.post(url + 'login',  user).then( (data) => {
+            const user = data.data.user.id
+            const token = data.data.token
+            this.createCurrentUser(user, token);
           })
         },
 
         addUser: function(user) {
-          console.log(user);
-          return $http.post(url + 'users/signup', user).then( (data) => {
-            console.log(data);
-            // const user = data.data.data.data.id
-            // const token = data.data.data.token;
-            // createCurrentUser(user, token);
+          return $http.post(url + 'signup', user).then( (data) => {
+            const user = data.data.user.id
+            const token = data.data.token
+            this.createCurrentUser(user, token);
           })
         }
       }
