@@ -2,8 +2,9 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('damages', function(table) {
     table.increments();
-    table.integer('driver_id');
-    table.string('truck_id');
+    table.integer('report_id').unsigned().references('id').inTable('reports').onDelete('cascade');
+    table.integer('driver_id').unsigned().references('id').inTable('users').onDelete('cascade');
+    table.string('truck_id').unsigned().references('call').inTable('vehicles').onDelete('cascade');
     table.integer('x_coor');
     table.integer('y_coor');
     table.text('desc');

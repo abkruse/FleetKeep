@@ -2,9 +2,8 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('reports', function(table) {
     table.increments();
-    table.integer('driver_id');
-    table.string('driver_last');
-    table.string('truck_id');
+    table.integer('driver_id').unsigned().references('id').inTable('users').onDelete('cascade');
+    table.string('truck_id').unsigned().references('call').inTable('vehicles').onDelete('cascade');
     table.integer('odo_num');
     table.bool('dvir_bool');
     table.bool('damage_bool');
