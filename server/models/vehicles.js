@@ -8,10 +8,7 @@ module.exports = {
 
   getAll: function() {
     return Vehicles()
-            .select()
-            .then( (data) => {
-              console.log(data);
-            })
+            .select();
   },
 
   getOne: function(id) {
@@ -19,9 +16,7 @@ module.exports = {
             .where({
               id:id
             })
-            .then( (data) => {
-              console.log(data);
-            })
+            .first();
   },
 
   add: function(vehicle) {
@@ -29,9 +24,6 @@ module.exports = {
             .insert({
               call: vehicle.call,
               body: vehicle.body
-            })
-            .then( (data) => {
-              console.log(data);
             });
   },
 
@@ -39,9 +31,9 @@ module.exports = {
     return Vehicles()
             .where({
               id:id
-            })
-            .then( (data)=> {
-              console.log(data);
+            }).update({
+              call: vehicle.call,
+              body: vehicle.body
             });
   },
 

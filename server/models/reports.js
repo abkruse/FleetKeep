@@ -8,10 +8,7 @@ module.exports = {
 
   getAll: function() {
     return Reports()
-            .select()
-            .then( (data) => {
-              console.log(data);
-            });
+            .select();
   },
 
   getOne: function(id) {
@@ -19,19 +16,13 @@ module.exports = {
             .where({
                id:id
             })
-            .first()
-            .then( (data)=> {
-              console.log(data);
-            });
+            .first();
   },
 
   getByDriver: function(driver_id) {
     return Reports()
             .where({
               driver_id: driver_id
-            })
-            .then( (data) => {
-              console.log(data);
             });
   },
 
@@ -43,9 +34,6 @@ module.exports = {
               odo_num: report.odo_num,
               dvir_bool: report.dvir_bool,
               damage_bool: report.damage_bool
-            })
-            .then( (data) => {
-              console.log(data);
             });
   },
 
@@ -60,9 +48,7 @@ module.exports = {
               odo_num: report.odo_num,
               dvir_bool: report.dvir_bool,
               damage_bool: report.damage_bool
-            }).then( (data) => {
-              console.log(data);
-            })
+            });
   },
 
   remove: function(id) {
