@@ -19,7 +19,7 @@ function checkHeaders(req,res,next){
   }
 }
 
-// middleware to check the token against params to authorize a user
+
 function checkToken(req,res,next){
   try {
     var decoded = jwt.verify(req.headers.authorization.split(" ")[1], process.env.SECRET);
@@ -35,7 +35,6 @@ function checkToken(req,res,next){
   }
 }
 
-// middleware to check the token in general
 function checkTokenForAll(req,res,next){
   try {
     var decoded = jwt.verify(req.headers.authorization.split(" ")[1], process.env.SECRET);
@@ -48,13 +47,11 @@ function checkTokenForAll(req,res,next){
 
 router.use(checkHeaders);
 
-/* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('hola!');
 });
 
 router.post('/signup',function(req,res){
-  console.log('inside the route!');
   if(req.body.email.length < 4 || req.body.password.length < 4 ){
     res.status(400).send("Email and Password must be longer than 4 characters")
   }
@@ -71,7 +68,6 @@ router.post('/signup',function(req,res){
         token = jwt.sign({ id: user[0].id}, process.env.SECRET);
         res.json({token:token, user:listedItems});
       }).catch(function(err){
-        console.log(err);
         res.status(400).send("Email/Password can't be blank and Email must be unique");
       })
     })
@@ -86,7 +82,6 @@ router.post('/login',function(req,res){
     else {
       bcrypt.compare(req.body.password, user.password, function (err, isMatch) {
         if(err || !isMatch){
-          console.log(err);
           res.status(400).send("Invalid email or password");
         }
         else{
