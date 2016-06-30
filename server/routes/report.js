@@ -31,6 +31,12 @@ router.get('/vehicles/all', function(req, res, next) {
   })
 })
 
+router.get('/vehicles/:id', function(req, res, next) {
+  Vehicles.getOne(req.params.id).then( (data) => {
+    res.send(data);
+  })
+})
+
 router.post('/', function(req, res, next) {
   Reports.add(req.body).then( (data)=> {
     console.log(data);

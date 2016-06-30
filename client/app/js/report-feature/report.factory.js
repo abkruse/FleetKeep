@@ -20,6 +20,23 @@
           return $http.get(url + 'report/vehicles/all').then( (data) => {
             return data.data;
           });
+        },
+
+        getTruckImage: function(id) {
+          return $http.get(url + 'report/vehicles/' + id).then( (data) => {
+            return data;
+          });
+        },
+
+        getTruckDamage: function(id) {
+          //get damages for the truck id
+          return $http.get(url + '/report/damage/' + id).then( (data)=> {
+            return data;
+          })
+        },
+
+        markDamage: function(damageReport) {
+          //should open modal first on front end, then form for entering damage info
         }
       }
     }

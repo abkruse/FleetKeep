@@ -16,6 +16,23 @@
         ctrl.allVehicles = data;
       })
 
+      ctrl.begin = function(truck_id) {
+        ctrl.truckID = truck_id;
+
+        ReportFactory.getTruckImage(truck_id).then( (data)=> {
+          const body = data.data.body;
+          return body;
+        }).then( (body) => {
+          let img ='images/' + body + '.jpg';
+          ctrl.vehicleImg = img;
+        }).catch( (err)=> {
+          console.log(err);
+        });
+      }
+
+      // ctrl.getDamage = function(ctrl.truckID) {
+      //   console.log(truckId);
+      // }
     }
 
 })();
