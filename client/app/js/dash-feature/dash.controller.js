@@ -14,5 +14,6 @@
         $window.localStorage.clear();
         $state.go('home');
       }
+
     }
  })();

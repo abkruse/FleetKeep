@@ -5,12 +5,13 @@
     .module('fleetkeep')
     .factory('DashFactory', DashFactory);
 
-    DashFactory.$inject = [];
+    DashFactory.$inject = ['$http'];
 
-    function DashFactory() {
+    function DashFactory($http) {
+      var url = 'http://localhost:3000/';
 
       return {
-        
+      
       }
     }
 })();

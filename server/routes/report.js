@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
 var Reports = require('../models/reports');
+var Vehicles = require('../models/vehicles')
 
 router.get('/', function(req, res, next) {
   Reports.getAll().then( (data) => {
@@ -23,6 +24,12 @@ router.get('/:id/driver', function(req, res, next) {
     res.send(data);
   });
 });
+
+router.get('/vehicles/all', function(req, res, next) {
+  Vehicles.getAll().then( (data) => {
+    res.send(data);
+  })
+})
 
 router.post('/', function(req, res, next) {
   Reports.add(req.body).then( (data)=> {

@@ -14,21 +14,19 @@
 <h3>New Report</h3>
 <form>
   <div class='row form-group'>
-    <label>Truck Number</label>
+    <label class='col s4 offset-s3'>Truck Number</label>
   </div>
   <div class='row form-group'>
-    <select class="browser-default col s4 offset-s3" ng-model='report.companyNum' required=true>
+    <select class="browser-default col s4 offset-s3" ng-model='report.truck_id' required=true>
       <option value="" disabled selected>Choose your option</option>
-      <!-- make ng-repeat for all truck numbers  -->
-      <option value="12A432">12A432</option>
-      <option value="43S754">43S754</option>
-      <option value="89E126">89E126</option>
+      <option ng-repeat='vehicle in ctrl.allVehicles' value="{{vehicle.call}}">{{vehicle.call}}</option>
     </select>
   </div>
   <div class='row'>
-    <label>Odometer</label>
+    <label class='col s4 offset-s3'>Odometer</label>
   </div>
-  <div>
-    <input type='integer' ng-model='report.odo' required=true/>
+  <div class='row'>
+    <input class='col s4 offset-s3' type='number' ng-model='report.odo_num' required=true/>
   </div>
+  
 </form>
