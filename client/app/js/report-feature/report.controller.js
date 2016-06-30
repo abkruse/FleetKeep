@@ -39,7 +39,8 @@
 
       ctrl.markDamage = function(e, truck_id) {
         console.log(e.offsetX);
-        console.log(e.offsetY)
+        console.log(e.offsetY);
+        console.log(truck_id);
       }
     }
 
