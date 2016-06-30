@@ -33,8 +33,7 @@
   </div>
 </form>
 <div class='row'>
-  <canvas id='canvas'></canvas>
-  <img class='vehicleImg col s8 offset-s1' ng-src='{{ctrl.vehicleImg}}' alt='truck body damage map' id='carOrTruck' />
+  <canvas class='col offset-s1' id='canvas' width='800' height="600" ng-click='ctrl.markDamage($event, report.truck_id)'></canvas>
 </div>
 <div class='container' id='damage-report'>
   <form>

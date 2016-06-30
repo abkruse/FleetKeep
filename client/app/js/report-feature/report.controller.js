@@ -24,21 +24,23 @@
           return body;
         }).then( (body) => {
           let img ='images/' + body + '.jpg';
-          ctrl.vehicleImg = img;
+          var canvas = document.getElementById('canvas');
+          var context = canvas.getContext('2d');
+          var imgObj = new Image();
+
+          imgObj.onload = function() {
+            context.drawImage(imgObj, 0, 0, imgObj.width, imgObj.height, 0, 0, canvas.width, canvas.height);
+          }
+          imgObj.src = img;
         }).catch( (err)=> {
           console.log(err);
         });
       }
 
-      // ctrl.draw = function() {
-      //   CanvasFactory.getCanvas( (data) => {
-      //     data.src = ctrl.vehicleImg;
-      //   })
-      // }
-
-      // ctrl.getDamage = function(ctrl.truckID) {
-      //   console.log(truckId);
-      // }
+      ctrl.markDamage = function(e, truck_id) {
+        console.log(e.offsetX);
+        console.log(e.offsetY)
+      }
     }
 
 })();
