@@ -34,7 +34,7 @@
             return data;
           })
         },
-
+        
         markDamage: function(damageReport) {
           //should open modal first on front end, then form for entering damage info
         }

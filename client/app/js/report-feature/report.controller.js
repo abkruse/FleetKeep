@@ -30,6 +30,12 @@
         });
       }
 
+      // ctrl.draw = function() {
+      //   CanvasFactory.getCanvas( (data) => {
+      //     data.src = ctrl.vehicleImg;
+      //   })
+      // }
+
       // ctrl.getDamage = function(ctrl.truckID) {
       //   console.log(truckId);
       // }
