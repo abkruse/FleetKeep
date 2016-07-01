@@ -35,6 +35,12 @@ router.get('/vehicles/:call', function(req, res, next) {
   })
 })
 
+router.get('/damages/:call', function(req, res, next) {
+  Damages.getTruckDamage(req.params.call).then( (data) => {
+    res.send(data);
+  })
+})
+
 router.post('/', function(req, res, next) {
   Reports.add(req.body).then( (data)=> {
     res.send(data);

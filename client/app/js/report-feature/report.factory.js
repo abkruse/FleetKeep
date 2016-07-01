@@ -28,15 +28,10 @@
           });
         },
 
-        getTruckDamage: function(id) {
-          //get damages for the truck id
-          return $http.get(url + '/report/damage/' + id).then( (data)=> {
-            return data;
+        getTruckDamage: function(call) {
+          return $http.get(url + 'report/damages/' + call).then( (data)=> {
+            return data.data;
           })
-        },
-
-        markDamage: function(damageReport) {
-          //should open modal first on front end, then form for entering damage info
         },
 
         submitReport: function(report, user, damages) {

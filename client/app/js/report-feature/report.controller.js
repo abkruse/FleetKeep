@@ -25,17 +25,46 @@
           return body;
         }).then( (body) => {
           let img ='images/' + body + '.jpg';
-          var canvas = document.getElementById('canvas');
-          var context = canvas.getContext('2d');
+          var cnvs = document.getElementById('canvas');
+          var ctx = cnvs.getContext('2d');
           var imgObj = new Image();
 
           imgObj.onload = function() {
-            context.drawImage(imgObj, 0, 0, imgObj.width, imgObj.height, 0, 0, canvas.width, canvas.height);
+            ctx.drawImage(imgObj, 0, 0, imgObj.width, imgObj.height, 0, 0, cnvs.width, cnvs.height);
+
           }
           imgObj.src = img;
+        }).then( ()=> {
+          this.getDamage(truck_id);
         }).catch( (err)=> {
           console.log(err);
         });
+      }
+
+      ctrl.getDamage = function(call) {
+        ReportFactory.getTruckDamage(call).then( (data)=> {
+          let marks = data;
+          this.addDamageMarks(marks);
+        }).catch( (err) => {
+          console.log(err);
+        })
+      }
+
+      ctrl.addDamageMarks = function(marks) {
+        var cnvs = document.getElementById('canvas');
+        var ctx = cnvs.getContext('2d');
+
+        for(var k = 0; k < marks.length; k++) {
+          var centerX = marks[k].x_coor;
+          var centerY = marks[k].y_coor;
+          var radius = 20;
+
+          ctx.beginPath();
+          ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+          ctx.lineWidth = 5;
+          ctx.strokeStyle = '#FFA500';
+          ctx.stroke();
+        }
       }
 
       ctrl.markDamage = function(e) {
