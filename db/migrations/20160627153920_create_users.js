@@ -7,6 +7,7 @@ exports.up = function(knex, Promise) {
     table.string('title');
     table.string('email').unique();
     table.string('password');
+    table.integer('company_id');
   })
 };
 

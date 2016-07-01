@@ -9,7 +9,8 @@ exports.seed = function(knex, Promise) {
             lastName:'Newyork',
             title: 'Supervisor',
             email: 'albany@newyork.com',
-            password: '$2a$10$5iNx2QCw1l.f53hzbde/TOm.H4yjnRuwrpWQLImest7EwIlgWe6d6'
+            password: '$2a$10$5iNx2QCw1l.f53hzbde/TOm.H4yjnRuwrpWQLImest7EwIlgWe6d6',
+            company_id: 1
           }),
           knex('users').insert({
             id: 2,
@@ -17,7 +18,8 @@ exports.seed = function(knex, Promise) {
             lastName:'Brady',
             title: 'Driver',
             email: 'tom@brady.com',
-            password: '$2a$10$7NO6EMZ8l994UllKZfu7t.42cVnyHxl/ZTboJBNnP1XtF1aLvozUK'
+            password: '$2a$10$7NO6EMZ8l994UllKZfu7t.42cVnyHxl/ZTboJBNnP1XtF1aLvozUK',
+            company_id: 1
           }),
           knex('users').insert({
             id: 3,
@@ -25,7 +27,8 @@ exports.seed = function(knex, Promise) {
             lastName:'Willis',
             title: 'Driver',
             email: 'phyllis@willis.com',
-            password: '$2a$10$58H3bWBxyn/ehMb6KtsW3.OsZBn6zcjx1Q0w6pC7428cKB5fEFFgC'
+            password: '$2a$10$58H3bWBxyn/ehMb6KtsW3.OsZBn6zcjx1Q0w6pC7428cKB5fEFFgC',
+            company_id: 1
           }),
           knex('users').insert({
             id: 4,
@@ -33,7 +36,8 @@ exports.seed = function(knex, Promise) {
             lastName:'Jones',
             title: 'Driver',
             email: 'felicity@jones.com',
-            password: '$2a$10$1C7TFDBVSH.l4OUmM6RdL.yLCDi3JpzcgGOq6yK843e03rx86FEAa'
+            password: '$2a$10$1C7TFDBVSH.l4OUmM6RdL.yLCDi3JpzcgGOq6yK843e03rx86FEAa',
+            company_id: 1
           })
         )
       })
