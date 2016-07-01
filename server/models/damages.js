@@ -19,6 +19,14 @@ module.exports = {
             .first();
   },
 
+  getTruckDamage: function(truck_id) {
+    return Damages()
+            .where({
+              truck_id:truck_id
+            })
+            .select();
+  },
+
   add: function(damage) {
     return Damages()
             .insert({
