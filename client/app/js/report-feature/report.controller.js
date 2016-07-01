@@ -70,6 +70,19 @@
       ctrl.markDamage = function(e) {
         ctrl.x_coor = e.offsetX;
         ctrl.y_coor = e.offsetY;
+
+        var cnvs = document.getElementById('canvas');
+        var ctx = cnvs.getContext('2d');
+
+        var centerX = e.offsetX;
+        var centerY = e.offsetY;
+        var radius = 20;
+
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = '#FFA500';
+        ctx.stroke();
       }
 
       ctrl.damageReport = function(damage) {
