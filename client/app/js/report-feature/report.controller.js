@@ -11,6 +11,7 @@
       let ctrl = this;
 
       ctrl.user = ReportFactory.getUser();
+      ctrl.damages = [];
 
       ReportFactory.getVehicles().then( (data) => {
         ctrl.allVehicles = data;
@@ -37,10 +38,33 @@
         });
       }
 
-      ctrl.markDamage = function(e, truck_id) {
-        console.log(e.offsetX);
-        console.log(e.offsetY);
-        console.log(truck_id);
+      ctrl.markDamage = function(e) {
+        ctrl.x_coor = e.offsetX;
+        ctrl.y_coor = e.offsetY;
+      }
+
+      ctrl.damageReport = function(damage) {
+        damage.truck_id = ctrl.truckID;
+        damage.driver_id = ctrl.user;
+        damage.x_coor = ctrl.x_coor;
+        damage.y_coor = ctrl.y_coor;
+        ctrl.damages.push(damage);
+      }
+
+      ctrl.submitReport = function(report) {
+        if(ctrl.damages.length === 0) {
+          report.damage_bool = false;
+        } else {
+          report.damage_bool = true;
+        }
+
+        ReportFactory.submitReport(report, ctrl.user, ctrl.damages).then( (data) => {
+          console.log(data);
+        }).catch((err)=> {
+          console.log(err);
+        })
+
+
       }
     }
 

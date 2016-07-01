@@ -11,10 +11,10 @@ module.exports = {
             .select();
   },
 
-  getOne: function(id) {
+  getOne: function(call) {
     return Vehicles()
             .where({
-              id:id
+              call:call
             })
             .first();
   },

@@ -34,7 +34,8 @@ module.exports = {
               odo_num: report.odo_num,
               dvir_bool: report.dvir_bool,
               damage_bool: report.damage_bool
-            });
+            })
+            .returning('id');
   },
 
   update: function(id, report) {

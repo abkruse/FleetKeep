@@ -19,7 +19,7 @@
   <div class='row form-group'>
     <select class="browser-default col s4 offset-s3" ng-model='report.truck_id' required=true>
       <option value="" disabled selected>Choose your option</option>
-      <option ng-repeat='vehicle in ctrl.allVehicles' value={{vehicle.id}}>{{vehicle.call}}</option>
+      <option ng-repeat='vehicle in ctrl.allVehicles' value={{vehicle.call}}>{{vehicle.call}}</option>
     </select>
   </div>
   <div class='row'>
@@ -32,7 +32,150 @@
     <button ng-click='ctrl.begin(report.truck_id)' class="waves-effect waves-light btn-large col s2 offset-s4">Begin</button>
   </div>
 </form>
+<div class='dvir row'>
+  <form class='col s9 offset-s1'>
+    <h4 class='offset-s4'>Driver Vehicle Inspection Report</h4>
+    <div class='container'>
+
+    </div>
+      <div class='container col s3'>
+        <label for='engine'>Engine Compartment</label>
+        <p>
+          <input class='engine' type="checkbox" id="fluid-levels" />
+          <label for="fluid-levels">Fluid Levels</label>
+        </p>
+        <p>
+          <input class='engine' type="checkbox" id="Belts" />
+          <label for="Belts">Belts & Hose</label>
+        </p>
+        <p>
+          <input class='engine' type="checkbox" id="leaks" />
+          <label for="leaks">Fluid Leaks</label>
+        </p>
+        <label for='exterior'>Exterior</label>
+        <p>
+          <input class='exterior' type="checkbox" id="lights" />
+          <label for="lights">Lights</label>
+        </p>
+        <p>
+          <input class='exterior' type="checkbox" id="reflectors" />
+          <label for="reflectors">Reflectors</label>
+        </p>
+        <p>
+          <input class='exterior' type="checkbox" id="fuel-tanks" />
+          <label for="fuel-tanks">Fuel Tanks</label>
+        </p>
+        <p>
+          <input class='exterior' type="checkbox" id="lines" />
+          <label for="lines">Air/Elect Lines</label>
+        </p>
+        <p>
+          <input class='exterior' type="checkbox" id="brakes" />
+          <label for="brakes">Brakes & Drum</label>
+        </p>
+        <p>
+          <input class='exterior' type="checkbox" id="splash" />
+          <label for="splash">Splash Guard</label>
+        </p>
+        <p>
+          <input class='exterior' type="checkbox" id="springs" />
+          <label for="springs">Springs & Shocks</label>
+        </p>
+      </div>
+      <div class='container col s3'>
+        <p>
+          <input class='exterior' type="checkbox" id="mirrors" />
+          <label for="mirrors">Mirrors</label>
+        </p>
+        <p>
+          <input class='exterior' type="checkbox" id="tires" />
+          <label for="tires">Tires & Wheels</label>
+        </p>
+        <p>
+          <input class='exterior' type="checkbox" id="body" />
+          <label for="body">Body, Doors, & Locks</label>
+        </p>
+        <label for='cab'>Cab</label>
+        <p>
+          <input class='cab' type="checkbox" id="horn" />
+          <label for="horn">Horn(s)</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="steering" />
+          <label for="steering">Steering</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="heating" />
+          <label for="heating">Heater/Defroster</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="trans" />
+          <label for="trans">Transmission</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="panel_lights" />
+          <label for="panel_lights">Panel Lights</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="clutch" />
+          <label for="clutch">Clutch</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="brake" />
+          <label for="brake">Brake System</label>
+        </p>
+      </div>
+      <div class='container col s3'>
+        <p>
+          <input class='cab' type="checkbox" id="diff" />
+          <label for="diff">Differential</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="emergency" />
+          <label for="emergency">Emergency Equip.</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="windows" />
+          <label for="windows">Windows & Wipers</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="gauges_indicators" />
+          <label for="gauges_indicators">Gauges & Indicators</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="seat_belts" />
+          <label for="seat_belts">Seat Belts</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="battery" />
+          <label for="battery">Battery</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="exhaust" />
+          <label for="exhaust">Exhaust</label>
+        </p>
+        <label for='other'>Other</label>
+        <p>
+          <input class='other' type="checkbox" id="fifth" />
+          <label for="fifth">Fifth Wheel</label>
+        </p>
+        <p>
+          <input class='other' type="checkbox" id="landing" />
+          <label for="landing">Landing Gear</label>
+        </p>
+        <p>
+          <input class='other' type="checkbox" id="pin" />
+          <label for="pin">King Pin</label>
+        </p>
+      </div>
+    </div>
+    <div class='row'>
+      <button ng-click='report.dvir_bool=true' class="waves-effect waves-light btn-large col s2 offset-s3">Completed</button>
+    </div>
+  </form>
+</div>
 <div class='row'>
+  <h4>Input Any Unmarked Damage</h4>
   <canvas class='col offset-s1' id='canvas' width='800' height="600" ng-click='ctrl.markDamage($event, report.truck_id)'></canvas>
 </div>
 <div class='container' id='damage-report'>
@@ -44,8 +187,10 @@
       <input class='col s8 offset-s2' type='text' ng-model='damage.desc' placeholder='e.g. Scratch found on driver door. About 4" in length and down to metal.' required=true/>
     </div>
     <div class='row'>
-      <button ng-click='' class="waves-effect waves-light btn-large col s2 offset-s3">Submit</button>
+      <button ng-click='ctrl.damageReport(damage)' class="waves-effect waves-light btn-large col s2 offset-s3">Submit</button>
       <button ng-click='' class="waves-effect waves-light btn-large col s2 offset-s1">Cancel</button>
     </div>
   </form>
 </div>
+<button ng-click='ctrl.submitReport(report)' class="waves-effect waves-light btn-large col s2 offset-s3">Submit</button>
+<a ng-href='/dash' class="waves-effect waves-light btn-large col s2 offset-s1">Cancel</a>
