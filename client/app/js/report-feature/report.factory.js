@@ -41,23 +41,16 @@
 
         submitReport: function(report, user, damages) {
           report.driver_id = parseInt(user);
-          damages.driver_id = parseInt(user);
 
           return $http.post(url + 'report', report).then( (data) => {
-            if(damages.length){
-              //loop through array of objects
-              //make each damage report
-              //http post for each
-              damages.report_id = data.data[0];
-              console.log(damages);
-              return $http.post(url + 'report/damages', damages).then( (data) => {
-                console.log('we have damages! ' + data);
+            for(var i = 0; i < damages.length; i++) {
+              damages[i].report_id = data.data[0];
+
+              $http.post(url + 'report/damages', damages[i]).then( (data) => {
                 return data;
               })
-            } else {
-              console.log('else ' + data);
-              return data;
             }
+            return data;
           });
         }
       }

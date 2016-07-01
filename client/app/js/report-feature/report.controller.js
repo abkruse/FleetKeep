@@ -5,9 +5,9 @@
     .module('fleetkeep')
     .controller('ReportCtrl', ReportCtrl);
 
-    ReportCtrl.$inject= ['ReportFactory'];
+    ReportCtrl.$inject= ['ReportFactory', '$state'];
 
-    function ReportCtrl(ReportFactory) {
+    function ReportCtrl(ReportFactory, $state) {
       let ctrl = this;
 
       ctrl.user = ReportFactory.getUser();
@@ -45,9 +45,14 @@
 
       ctrl.damageReport = function(damage) {
         damage.truck_id = ctrl.truckID;
-        damage.driver_id = ctrl.user;
+        damage.driver_id = parseInt(ctrl.user);
         damage.x_coor = ctrl.x_coor;
         damage.y_coor = ctrl.y_coor;
+
+        ctrl.updateDamages(angular.copy(damage));
+      }
+
+      ctrl.updateDamages = function(damage) {
         ctrl.damages.push(damage);
       }
 
@@ -59,12 +64,10 @@
         }
 
         ReportFactory.submitReport(report, ctrl.user, ctrl.damages).then( (data) => {
-          console.log(data);
+          $state.go('dash');
         }).catch((err)=> {
           console.log(err);
         })
-
-
       }
     }
 
