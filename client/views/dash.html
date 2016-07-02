@@ -18,3 +18,47 @@
 <div class='row'>
   <a href='/report'><button class="waves-effect waves-light btn-large col s2 offset-s5">New Report</button></a>
 </div>
+<div class='row'>
+  <table class='col s10 offset-s1'>
+    <thead>
+      <th>
+        Vehicle ID
+      </th>
+      <th>
+        Driver
+      </th>
+      <th>
+        Damage
+      </th>
+      <th>
+        Date
+      </th>
+      <th>
+        Status
+      </th>
+    </thead>
+    <tbody>
+      <tr ng-repeat='report in ctrl.reports'>
+        <td>
+          {{report.truck_id}}
+        </td>
+        <td>
+          {{report.driver_id}}
+        </td>
+        <td>
+          {{report.desc}}
+        </td>
+        <td>
+          {{report.date}}
+        </td>
+        <td>
+          {{report.status}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- Video of how to run inspection (do I want to use it on driver dash?) -->
+<!-- <iframe id="ytplayer" type="text/html" width="320" height="195"
+  src="https://www.youtube.com/embed/gw7vinvH1XY"
+  frameborder="0"></iframe> -->

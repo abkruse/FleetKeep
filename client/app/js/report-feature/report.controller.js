@@ -92,6 +92,8 @@
         damage.y_coor = ctrl.y_coor;
 
         ctrl.updateDamages(angular.copy(damage));
+        var desc = document.getElementById('desc');
+        desc.value = '';
       }
 
       ctrl.updateDamages = function(damage) {
@@ -109,7 +111,7 @@
           $state.go('dash');
         }).catch((err)=> {
           console.log(err);
-        })
+        });
       }
     }
 
