@@ -19,6 +19,17 @@
   <a href='/report'><button class="waves-effect waves-light btn-large col s2 offset-s5">New Report</button></a>
 </div>
 <div class='row'>
+  <div class='row form-group'>
+    <label class='col s4 offset-s3'>View By:</label>
+  </div>
+  <select class="browser-default col s4 offset-s3" ng-model='ctrl.selection'>
+    <option value="" disabled selected>Choose your option</option>
+    <option value='driver_id'>Driver ID</option>
+    <option value='truck_id'>Truck ID</option>
+    <option value='status'>Status</option>
+  </select>
+</div>
+<div class='row'>
   <table class='col s10 offset-s1'>
     <thead>
       <th>
@@ -38,7 +49,7 @@
       </th>
     </thead>
     <tbody>
-      <tr ng-repeat='report in ctrl.reports | orderBy: status:true'>
+      <tr ng-repeat='report in ctrl.reports | orderBy: status:true || ctrl.selection'>
         <td>
           {{report.truck_id}}
         </td>
