@@ -18,7 +18,14 @@
 
         getLatestDamages: function() {
           return $http.get(url + 'dash/damages').then( (data)=> {
-            return data.data;
+            let toView = [];
+            let damages = data.data;
+            damages.forEach(function(damage) {
+              if(damage.status != 'Fixed') {
+                toView.push(damage);
+              }
+            })
+            return toView;
           });
         }
       }

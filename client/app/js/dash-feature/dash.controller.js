@@ -23,7 +23,6 @@
             report.status = 'Pending';
           }
         });
-        console.log(reports);
         ctrl.reports = reports;
       }).catch((err) => {
         console.log(err);
