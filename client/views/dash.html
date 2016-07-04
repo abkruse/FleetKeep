@@ -38,7 +38,7 @@
       </th>
     </thead>
     <tbody>
-      <tr ng-repeat='report in ctrl.reports'>
+      <tr ng-repeat='report in ctrl.reports | orderBy: status:true'>
         <td>
           {{report.truck_id}}
         </td>
