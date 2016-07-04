@@ -36,8 +36,6 @@
       //print forms?
 
       //supervisors have analytics!
-      //can see all recently reported damage, filtered by date in a table
       //can open reports and edit them
-      //can set status of report
     }
  })();

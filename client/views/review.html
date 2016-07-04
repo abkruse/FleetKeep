@@ -13,6 +13,27 @@
 </nav>
 <h2>Review Page</h2>
 <div class='row'>
+  <form class='review-form'>
+    <div class='form-group'>
+      <label class='col s1 offset-s3'>Set Status:</label>
+    </div>
+    <select class="browser-default col s2" ng-model='ctrl.report.$$state.value.status'>
+      <option value="" disabled selected>Choose your option</option>
+      <option value='Reviewed'>Reviewed</option>
+      <option value='Fixed'>Fixed</option>
+      <option value='Out of Service'>Out of Service for Repair</option>
+    </select>
+    <div class='form-group'>
+      <label class='col offset-s1' for='status-desc'>Notes</label>
+    </div>
+    <div>
+      <input type='text' class='col s4' ng-model='ctrl.report.$$state.value.desc'/>
+    </div>
+    <button ng-click='ctrl.updateStatus(ctrl.report.$$state.value)' class="waves-effect waves-light btn-large col s2 offset-s3">Submit</button>
+  </form>
+</div>
+<!-- <div class='row'>
   <button ng-click='ctrl.updateStatus()' class="waves-effect waves-light btn-large col s2 offset-s3">Reviewed</button>
   <button ng-click='ctrl.markFixed()' class="waves-effect waves-light btn-large col s2 offset-s3">Fixed</button>
-</div>
+  <button ng-click='ctrl.toShop()' class="waves-effect waves-light btn-large col s2 offset-s3">Fixed</button>
+</div> -->

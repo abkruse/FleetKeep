@@ -42,10 +42,16 @@ router.get('/vehicles/:call', function(req, res, next) {
 })
 
 router.get('/damages/truck/:call', function(req, res, next) {
-  Damages.getTruckDamage(req.params.call).then( (data) => {
-    res.send(data);
-  })
-})
+  knex.from('damages').innerJoin('users', 'damages.driver_id', 'users.id').then( (data) => {
+    let relevant = [];
+    data.forEach(function(data) {
+      if(data.truck_id === req.params.call) {
+        relevant.push(data);
+      }
+    })
+    res.send(relevant);
+  });
+});
 
 router.get('/damages/:id', function(req, res, next) {
   Damages.getOne(req.params.id).then( (data) => {

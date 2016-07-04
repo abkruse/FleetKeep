@@ -15,20 +15,28 @@
 
       ctrl.report = ReviewFactory.getDamage(damageId);
 
-      ctrl.updateStatus = function() {
-        let damRep = this.report.$$state.value;
+      ctrl.updateStatus = function(review) {
+        // let damRep = this.report.$$state.value;
 
-        ReviewFactory.updateStatus(ctrl.user, damageId, damRep).then( (data)=> {
+        ReviewFactory.updateStatus(ctrl.user, damageId, review).then( (data)=> {
           $state.go('dash');
         });
       }
 
-      ctrl.markFixed = function() {
-        let damRep = this.report.$$state.value;
-
-        ReviewFactory.markFixed(ctrl.user, damageId, damRep).then( (data)=> {
-          $state.go('dash');
-        })
-      }
+      // ctrl.markFixed = function() {
+      //   let damRep = this.report.$$state.value;
+      //
+      //   ReviewFactory.markFixed(ctrl.user, damageId, damRep).then( (data)=> {
+      //     $state.go('dash');
+      //   })
+      // }
+      //
+      // ctrl.toShop = function() {
+      //   let damRep = this.report.$$state.value;
+      //
+      //   ReviewFactory.toShop(ctrl.user, damageId, damRep).then( (data)=> {
+      //     $state.go('dash');
+      //   })
+      // }
     }
 })();

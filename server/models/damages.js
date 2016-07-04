@@ -44,6 +44,7 @@ module.exports = {
               x_coor: damage.x_coor,
               y_coor: damage.y_coor,
               desc: damage.desc,
+              status: damage.status
             });
   },
 

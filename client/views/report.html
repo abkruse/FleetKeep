@@ -175,10 +175,46 @@
   </form>
 </div>
 <div class='row'>
-  <h4>Input Any Unmarked Damage</h4>
+  <h4 class='col s6 offset-s1'>Previously Reported Damage</h4>
+  <table class='damage-table col s10 offset-s1'>
+    <thead>
+      <th>
+        Date
+      </th>
+      <th>
+        Description
+      </th>
+      <th>
+        Driver
+      </th>
+      <th>
+        Status
+      </th>
+    </thead>
+    <tr ng-repeat='damage in ctrl.prevDam'>
+      <td>
+        {{damage.created_at | date : format : short }}
+      </td>
+      <td>
+        {{damage.desc}}
+      </td>
+      <td>
+        {{damage.lastName}}, {{damage.firstName}}
+      </td>
+      <td>
+        {{damage.status}}
+      </td>
+    </tr>
+  </table>
+</div>
+<div class='row'>
+  <h4 class='col s6 offset-s1'>Input Any Unmarked Damage</h4>
   <canvas class='col offset-s1' id='canvas' width='800' height="600" ng-click='ctrl.markDamage($event, report.truck_id)'></canvas>
 </div>
 <div class='container' id='damage-report'>
+  <p>
+    Damage Report
+  </p>
   <form >
     <div class='row'>
       <label class='col s4 offset-s2'>Damage Description</label>

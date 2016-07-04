@@ -36,6 +36,7 @@
 
         submitReport: function(report, user, damages) {
           report.driver_id = parseInt(user);
+          console.log(damages);
 
           return $http.post(url + 'report', report).then( (data) => {
             for(var i = 0; i < damages.length; i++) {

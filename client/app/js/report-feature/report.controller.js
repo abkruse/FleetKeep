@@ -44,6 +44,8 @@
       ctrl.getDamage = function(call) {
         ReportFactory.getTruckDamage(call).then( (data)=> {
           let marks = data;
+
+          ctrl.prevDam = marks;
           this.addDamageMarks(marks);
         }).catch( (err) => {
           console.log(err);
@@ -90,6 +92,7 @@
         damage.driver_id = parseInt(ctrl.user);
         damage.x_coor = ctrl.x_coor;
         damage.y_coor = ctrl.y_coor;
+        damage.status = 'Pending';
 
         ctrl.updateDamages(angular.copy(damage));
         var desc = document.getElementById('desc');
