@@ -8,7 +8,7 @@
     config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider'];
 
     function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
-      $urlRouterProvider.otherwise('/');
+      // $urlRouterProvider.otherwise('/');
 
       $stateProvider
         .state('home', {
@@ -41,7 +41,7 @@
           restricted: true
         })
         .state('review', {
-          url:'/dash/:id',
+          url:'/review/:id',
           templateUrl: 'views/review.html',
           controller: 'ReviewCtrl as ctrl',
           restricted: true

@@ -5,9 +5,9 @@
     .module('fleetkeep')
     .controller('ReviewCtrl', ReviewCtrl);
 
-    ReviewCtrl.$inject = ['ReviewFactory', '$stateParams'];
+    ReviewCtrl.$inject = ['ReviewFactory', '$stateParams', '$state'];
 
-    function ReviewCtrl(ReviewFactory, $stateParams) {
+    function ReviewCtrl(ReviewFactory, $stateParams, $state) {
       let ctrl = this;
       let damageId = $stateParams.id;
 
@@ -19,7 +19,15 @@
         let damRep = this.report.$$state.value;
 
         ReviewFactory.updateStatus(ctrl.user, damageId, damRep).then( (data)=> {
-          console.log(data);
+          $state.go('dash');
+        });
+      }
+
+      ctrl.markFixed = function() {
+        let damRep = this.report.$$state.value;
+
+        ReviewFactory.markFixed(ctrl.user, damageId, damRep).then( (data)=> {
+          $state.go('dash');
         })
       }
     }
