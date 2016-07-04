@@ -12,8 +12,14 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-  Reports.getOne(req.params.id).then( (data)=> {
-    res.send(data);
+  knex.from('reports').innerJoin('damages', 'reports.id', 'damages.report_id').then( (data)=> {
+    let relevant = [];
+    data.forEach(function(data) {
+      if(data.id == req.params.id) {
+        relevant.push(data);
+      }
+    })
+    res.send(relevant);
   });
 });
 
@@ -35,8 +41,14 @@ router.get('/vehicles/:call', function(req, res, next) {
   })
 })
 
-router.get('/damages/:call', function(req, res, next) {
+router.get('/damages/truck/:call', function(req, res, next) {
   Damages.getTruckDamage(req.params.call).then( (data) => {
+    res.send(data);
+  })
+})
+
+router.get('/damages/:id', function(req, res, next) {
+  Damages.getOne(req.params.id).then( (data) => {
     res.send(data);
   })
 })
@@ -58,6 +70,12 @@ router.put('/:id/update', function(req, res, next) {
     res.sendStatus(200);
   });
 });
+
+router.put('/damages/:id/update', function(req, res, next) {
+  Damages.update(req.params.id, req.body).then( (data) => {
+    res.sendStatus(200);
+  })
+})
 
 router.delete('/:id/delete', function(req, res, next) {
   Reports.remove(req.params.id).then( (data) => {

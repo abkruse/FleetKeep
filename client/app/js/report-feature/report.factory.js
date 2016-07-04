@@ -29,7 +29,7 @@
         },
 
         getTruckDamage: function(call) {
-          return $http.get(url + 'report/damages/' + call).then( (data)=> {
+          return $http.get(url + 'report/damages/truck/' + call).then( (data)=> {
             return data.data;
           })
         },

@@ -39,6 +39,12 @@
           templateUrl: 'views/dash.html',
           controller: 'DashCtrl as ctrl',
           restricted: true
+        })
+        .state('review', {
+          url:'/dash/:id',
+          templateUrl: 'views/review.html',
+          controller: 'ReviewCtrl as ctrl',
+          restricted: true
         });
 
         $locationProvider.html5Mode(true);

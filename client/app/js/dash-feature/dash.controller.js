@@ -18,12 +18,20 @@
       }
 
       DashFactory.getLatestDamages().then( (reports)=> {
+        reports.forEach(function(report) {
+          if(report.status === null) {
+            report.status = 'Pending';
+          }
+        });
         console.log(reports);
         ctrl.reports = reports;
       }).catch((err) => {
         console.log(err);
       });
 
+      ctrl.viewReports = function(id) {
+        console.log(id);
+      }
       //drivers can see last 5 trips
       //drivers can see help video on inspection
       //print forms?
@@ -32,6 +40,5 @@
       //can see all recently reported damage, filtered by date in a table
       //can open reports and edit them
       //can set status of report
-
     }
  })();
