@@ -2,13 +2,13 @@
   'use strict';
 
   angular
-    .module('fleetkeep', ['ui.router'])
+    .module('fleetkeep', ['ui.router', 'highcharts-ng'])
     .config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider'];
 
     function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
-      // $urlRouterProvider.otherwise('/');
+      $urlRouterProvider.otherwise('/');
 
       $stateProvider
         .state('home', {
