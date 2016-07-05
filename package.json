@@ -6,7 +6,7 @@
     "node": "6.2.2"
   },
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./server/bin/www"
   },
   "dependencies": {
     "bcrypt": "^0.8.7",
