@@ -31,7 +31,12 @@
       ctrl.pieConfig = {
         options: {
             chart: {
-                type: 'pie'
+                type: 'pie',
+                events: {
+                  load: function(even) {
+                    console.log(this);
+                  }
+                }
             }
         },
         tooltip: {
@@ -50,18 +55,23 @@
                 }
             }
         },
+
+        data: {
+          complete: function(options) {
+            DashFactory.getStatuses().then( (data) => {
+              data.forEach(function(data) {
+                ctrl.pieConfig.series[0].data.push(data);
+              })
+            })
+          }()
+        },
+
         series: [{
-            data: [{
-              name: 'Pending',
-              y:10
-            }, {
-              name: 'Reviewed',
-              y:35
-            }, {
-              name: 'Out of Service',
-              y:3
-            }]
+          type: 'pie',
+          name: 'Trucks',
+          data: []
         }],
+
         title: {
             text: 'Fleet Status'
         },

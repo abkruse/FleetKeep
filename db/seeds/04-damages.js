@@ -11,7 +11,8 @@ exports.seed = function(knex, Promise) {
             truck_id: '314B45',
             x_coor: 255,
             y_coor: 812,
-            desc: 'Deep scratch on driver door found'
+            desc: 'Deep scratch on driver door found',
+            status: 'Pending'
           }),
           knex('damages').insert({
             id: 2,
@@ -20,7 +21,8 @@ exports.seed = function(knex, Promise) {
             truck_id: '243C47',
             x_coor: 544,
             y_coor: 739,
-            desc: 'Dent on side of truck'
+            desc: 'Dent on side of truck',
+            status: 'Pending'
           }),
           knex('damages').insert({
             id: 3,
@@ -29,7 +31,8 @@ exports.seed = function(knex, Promise) {
             truck_id: '12A34',
             x_coor: 176,
             y_coor: 1020,
-            desc: 'Entire engine missing. Seriously?!'
+            desc: 'Entire engine missing. Seriously?!',
+            status: 'Reviewed'
           })
         );
       })
