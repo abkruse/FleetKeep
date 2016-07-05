@@ -6,8 +6,7 @@
     "node": "6.2.2"
   },
   "scripts": {
-    "start": "node ./server/bin/www",
-    "postinstall": "bower install"
+    "start": "node ./server/bin/www"
   },
   "dependencies": {
     "bcrypt": "^0.8.7",
