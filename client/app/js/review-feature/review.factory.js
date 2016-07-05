@@ -8,7 +8,7 @@
     ReviewFactory.$inject = ['$http', '$window'];
 
     function ReviewFactory($http, $window) {
-      const url = 'http://localhost:3000/';
+      const url = 'http://fleetkeep.herokuapp.com/';
 
       return{
         getUser: function() {
