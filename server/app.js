@@ -12,13 +12,11 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var dash = require('./routes/dash');
 var report = require('./routes/report');
-// var api = require('./api');
-//router.use('')
 
 var app = express();
 
 // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
