@@ -1,6 +1,6 @@
 
 exports.seed = function(knex, Promise) {
-  return knex.raw('ALTER SEQUENCE reports_id_seq restart with 6')
+  return knex.raw('ALTER SEQUENCE reports_id_seq restart with 8')
     .then(function () {
       return knex('reports').del().then(function() {
         return Promise.join(
@@ -48,6 +48,24 @@ exports.seed = function(knex, Promise) {
             dvir_bool: true,
             damage_bool: true,
             created_at:'2016-06-30 04:00:00'
+          }),
+          knex('reports').insert({
+            id: 6,
+            driver_id: 4,
+            truck_id: '243C47',
+            odo_num: 650,
+            dvir_bool: true,
+            damage_bool: true,
+            created_at: '2016-07-05T05:39:59.683Z'
+          }),
+          knex('reports').insert({
+            id:7,
+            driver_id: 4,
+            truck_id: '314B45',
+            odo_num: 98854,
+            dvir_bool: true,
+            damage_bool: true,
+            created_at: '2016-07-05T05:39:59.683Z'
           })
         );
       })

@@ -21,34 +21,48 @@
             let toView = [];
             let damages = data.data;
             damages.forEach(function(damage) {
-              if(damage.status != 'Fixed') {
+              if(damage.status != 'Fixed' && damage.status != 'Out of Service') {
                 toView.push(damage);
               }
             })
-            return data.data;
+            return toView;
           });
         },
 
-        getStatuses: function(reports) {
+        getPie: function() {
           return $http.get(url + 'dash/damages').then( (data) => {
             const known = data.data;
-            const returned = [];
+            const returned = { 'Pending': 0, 'Reviewed':0, 'Out of Service': 0};
+            let statuses = [];
+            let j = 0;
 
-            for(var i = 0; i < known.length; i++) {
-              for (var j = 0; j < returned.length; j++) {
-                console.log(i);
-                if(known[i].status === returned[j].name) {
-                  returned[j].y ++;
-                  i++;
-                }
-                break;
-              }
-              console.log('pushing! ' + known[i].status);
-              returned.push({'name':known[i].status, 'y':1});
+            for (var i = 0; i < known.length; i++) {
+              returned[known[i].status] += 1;
             }
-            console.log(returned);
-            return returned;
-          })
+
+            for (var key in returned) {
+              if (Object.prototype.hasOwnProperty.call(returned, key)) {
+                var val = returned[key];
+                statuses.push({'name': Object.keys(returned)[j], 'y': val});
+                j++;
+              }
+            }
+            return statuses;
+          });
+        },
+
+        getLines: function() {
+          return $http.get(url + 'dash/damages').then( (data) => {
+            const known = data.data;
+            const returned = [{'name': 'Reviewed', data: []}, {'name': 'Pending', data: []}, {'name': 'Out of Service', data: []}];
+
+
+            console.log(known);
+          });
+        },
+
+        getBars: function() {
+          //bar chart of last drivers of a truck before damage is reported
         }
       }
     }

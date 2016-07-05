@@ -28,13 +28,60 @@
         console.log(err);
       });
 
+      // ctrl.lineConfig = {
+      //   options: {
+      //     chart: {
+      //       type: 'line',
+      //       events: {
+      //         load: function(event) {
+      //           console.log(this);
+      //         }
+      //       }
+      //     }
+      //   },
+      //   tooltip: {
+      //     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+      //   },
+      //   yAxis: {
+      //     title: {
+      //       text: 'Trucks'
+      //     },
+      //     plotLines: [{
+      //       value: 0,
+      //       width: 1,
+      //       color: '#808080'
+      //     }]
+      //   },
+      //   xAxis: {
+      //     categories: []
+      //   },
+      //   plotOptions: {
+      //
+      //   },
+      //   data: {
+      //     complete: function(options) {
+      //       DashFactory.getLines().then( (data) => {
+      //         data.forEach(function(data) {
+      //           ctrl.lineConfig.series[0].data.push(data);
+      //         })
+      //       })
+      //     }()
+      //   },
+      //   series: {
+      //
+      //   },
+      //   title: {
+      //     text: 'Fleet Health Past 30 Days'
+      //   }
+      // }
+
       ctrl.pieConfig = {
         options: {
             chart: {
                 type: 'pie',
                 events: {
-                  load: function(even) {
-                    console.log(this);
+                  load: function(event) {
+                    console.log('Pie done');
                   }
                 }
             }
@@ -58,7 +105,7 @@
 
         data: {
           complete: function(options) {
-            DashFactory.getStatuses().then( (data) => {
+            DashFactory.getPie().then( (data) => {
               data.forEach(function(data) {
                 ctrl.pieConfig.series[0].data.push(data);
               })
