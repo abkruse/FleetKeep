@@ -13,6 +13,11 @@
 
       ctrl.user = ReviewFactory.getUser();
 
+      ctrl.logout = function() {
+        $window.localStorage.clear();
+        $state.go('home');
+      }
+
       ctrl.report = ReviewFactory.getDamage(damageId);
 
       ctrl.updateStatus = function(review) {

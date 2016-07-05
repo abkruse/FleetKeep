@@ -18,12 +18,28 @@
       }
 
       DashFactory.getLatestDamages().then( (reports)=> {
+        const working = [];
+        const all = [];
+        const out = [];
+
         reports.forEach(function(report) {
           if(report.status === null) {
             report.status = 'Pending';
+            all.push(report);
+            working.push(report)
+          } else if (report.status != 'Fixed' && report.status != 'Out of Service') {
+            all.push(report);
+            working.push(report);
+          } else if (report.status === 'Out of Service') {
+            out.push(report);
+            all.push(report);
+          } else {
+            all.push(report);
           }
         });
-        ctrl.reports = reports;
+        ctrl.out = out;
+        ctrl.all = all;
+        ctrl.reports = working;
       }).catch((err) => {
         console.log(err);
       });
@@ -124,8 +140,60 @@
         },
 
         loading: false
-    }
-      //supervisors have analytics!
-      //can open reports and edit them
+      }
+
+      ctrl.barConfig = {
+        options: {
+          chart: {
+            type: 'bar',
+            events: {
+              load: function(event) {
+                console.log(event);
+              }
+            }
+          }
+        },
+        xAxis: {
+          categories: ['1', '2', '3', '4'],
+          title: {
+            text: 'Driver IDs'
+          }
+        },
+        yAxis: {
+          min: 0,
+          title: {
+            text: 'Damages reported after use',
+            align: 'high'
+          },
+          label: {
+            overflow: 'justify'
+          }
+        },
+        plotOptions: {
+          bar: {
+            dataLabels: {
+              enabled: true
+            }
+          }
+        },
+        legend: {
+          layout: 'vertical',
+          align: 'right'
+        },
+        data: {
+          complete: function(options) {
+            DashFactory.getBars().then( (data) => {
+              ctrl.barConfig.series[0].data.push(data);
+            })
+          }
+        },
+        series: [{
+          data: []
+        }],
+        title: {
+          text: 'Drivers Responsible for Damage'
+        },
+        loading: false
+      }
     }
  })();

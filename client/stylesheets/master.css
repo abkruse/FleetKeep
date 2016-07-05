@@ -1,3 +1,7 @@
+body {
+  background-color: RGBA(246, 246, 246, 1);
+}
+
 #damage-report {
   border: 1px solid black;
   border-radius: 2px;

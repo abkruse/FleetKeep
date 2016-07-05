@@ -13,6 +13,11 @@
       ctrl.user = ReportFactory.getUser();
       ctrl.damages = [];
 
+      ctrl.logout = function() {
+        $window.localStorage.clear();
+        $state.go('home');
+      }
+
       ReportFactory.getVehicles().then( (data) => {
         ctrl.allVehicles = data;
       })

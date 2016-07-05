@@ -26,6 +26,13 @@ module.exports = {
             });
   },
 
+  getByTruck: function(call) {
+    return Reports()
+            .where({
+              truck_id: call
+            })
+  },
+
   add: function(report) {
     return Reports()
             .insert({

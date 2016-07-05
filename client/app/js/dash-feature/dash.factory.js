@@ -18,14 +18,7 @@
 
         getLatestDamages: function() {
           return $http.get(url + 'dash/damages').then( (data)=> {
-            let toView = [];
-            let damages = data.data;
-            damages.forEach(function(damage) {
-              if(damage.status != 'Fixed' && damage.status != 'Out of Service') {
-                toView.push(damage);
-              }
-            })
-            return toView;
+            return data.data;
           });
         },
 
@@ -51,18 +44,59 @@
           });
         },
 
-        getLines: function() {
-          return $http.get(url + 'dash/damages').then( (data) => {
-            const known = data.data;
-            const returned = [{'name': 'Reviewed', data: []}, {'name': 'Pending', data: []}, {'name': 'Out of Service', data: []}];
-
-
-            console.log(known);
-          });
-        },
+        // getLines: function() {
+        //   return $http.get(url + 'dash/damages').then( (data) => {
+        //     const known = data.data;
+        //     const returned = [{'name': 'Reviewed', data: []}, {'name': 'Pending', data: []}, {'name': 'Out of Service', data: []}];
+        //
+        //
+        //     console.log(known);
+        //   });
+        // },
 
         getBars: function() {
-          //bar chart of last drivers of a truck before damage is reported
+          return $http.get(url + 'dash/damages').then( (data) => {
+            const reported = data.data;
+            const driverTally = { '1':0, '2':0, '3':0, '4':0 };
+            let n = 0;
+            let returned = [];
+            let requests = [];
+
+            reported.forEach(function(reports) {
+
+              requests.push($http.get(url + 'dash/vehicles/' + reports.truck_id).then( (data) => {
+                var truckReports = data.data;
+                var diffs = []
+
+                for(var k = 0; k < Object.keys(truckReports).length; k++) {
+
+                  var _MS_PER_DAY = 1000 * 60 * 60 * 24;
+                  var a = new Date(reports.created_at);
+                  var b = new Date(truckReports[k].created_at);
+
+                  var utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+                  var utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+
+                  var maths = Math.floor((utc2 - utc1));
+                  diffs.push(maths);
+                }
+                var sorted = diffs.sort();
+                sorted.reverse();
+
+                var num = diffs.indexOf(sorted[0]);
+                var driver = truckReports[num].driver_id;
+
+                driverTally[driver] += 1;
+              }));
+            });
+
+            return Promise.all(requests).then( () => {
+              returned = Object.keys(driverTally).map(key => {
+                return driverTally[key];
+              });
+              return returned;
+            })
+          });
         }
       }
     }

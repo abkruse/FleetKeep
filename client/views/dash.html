@@ -20,11 +20,15 @@
 </p>
 <div class='row'>
   <highchart id="status-pie" class='col s6' config="ctrl.pieConfig"></highchart>
-  <highchart id="status-pie" class='col s6' config="ctrl.lineConfig"></highchart>
+  <highchart id="damage-bar" class='col s6' config="ctrl.barConfig"></highchart>
 </div>
+<!-- <div class='row'>
+  <highchart id="status-line" class='col s6' config="ctrl.lineConfig"></highchart>
+</div> -->
 <div class='row'>
+  <h5 class='col s6 offset-s1'>Vehicles with Current Damage Reports</h5>
   <div class='form-group'>
-    <label class='col s1 offset-s8'>View By:</label>
+    <p class='col s1 offset-s1'>View By:</p>
   </div>
   <select class="browser-default col s2" ng-model='ctrl.selection'>
     <option value="" disabled selected>Choose your option</option>
@@ -69,6 +73,62 @@
         </td>
         <td>
           {{report.status}}
+        </td>
+        <td>
+          <a href='review/{{report.id}}' class='btn-floating waves-effect waves-light blue'><i class='material-icons'>assignment</i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class='row'>
+  <h5 class='col s6 offset-s1'>Vehicles Out of Service</h5>
+  <div class='form-group'>
+    <p class='col s1 offset-s1'>View By:</p>
+  </div>
+  <select class="browser-default col s2" ng-model='ctrl.selectionOut'>
+    <option value="" disabled selected>Choose your option</option>
+    <option value='driver_id'>Driver ID</option>
+    <option value='truck_id'>Truck ID</option>
+    <option value='status'>Status</option>
+    <option value='created_at'>Date of Report</option>
+  </select>
+</div>
+<div class='row'>
+  <table class='col s10 offset-s1'>
+    <thead>
+      <th>
+        Vehicle ID
+      </th>
+      <th>
+        Driver
+      </th>
+      <th>
+        Damage
+      </th>
+      <th>
+        Date
+      </th>
+      <th>
+        Status
+      </th>
+    </thead>
+    <tbody>
+      <tr ng-repeat='out in ctrl.out | orderBy: ctrl.selectionOut || status:true'>
+        <td>
+          {{out.truck_id}}
+        </td>
+        <td>
+          {{out.driver_id}}
+        </td>
+        <td>
+          {{out.desc}}
+        </td>
+        <td>
+          {{out.created_at | date : format : short }}
+        </td>
+        <td>
+          {{out.status}}
         </td>
         <td>
           <a href='review/{{report.id}}' class='btn-floating waves-effect waves-light blue'><i class='material-icons'>assignment</i></button>
