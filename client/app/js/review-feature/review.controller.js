@@ -27,21 +27,5 @@
           $state.go('dash');
         });
       }
-
-      // ctrl.markFixed = function() {
-      //   let damRep = this.report.$$state.value;
-      //
-      //   ReviewFactory.markFixed(ctrl.user, damageId, damRep).then( (data)=> {
-      //     $state.go('dash');
-      //   })
-      // }
-      //
-      // ctrl.toShop = function() {
-      //   let damRep = this.report.$$state.value;
-      //
-      //   ReviewFactory.toShop(ctrl.user, damageId, damRep).then( (data)=> {
-      //     $state.go('dash');
-      //   })
-      // }
     }
 })();
