@@ -8,7 +8,7 @@
     DashFactory.$inject = ['$http', '$window'];
 
     function DashFactory($http, $window) {
-      var url = 'http://fleetkeep.herokuapp.com/';
+      var url = 'https://fleetkeep.herokuapp.com/';
 
       return {
         getUser: function() {

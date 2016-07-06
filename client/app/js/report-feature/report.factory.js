@@ -8,7 +8,7 @@
     ReportFactory.$inject = ['$http', '$window'];
 
     function ReportFactory($http, $window) {
-      const url = 'http://fleetkeep.herokuapp.com/';
+      const url = 'https://fleetkeep.herokuapp.com/';
 
       return {
         getUser: function() {
