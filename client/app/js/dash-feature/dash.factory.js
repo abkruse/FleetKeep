@@ -94,7 +94,6 @@
               returned = Object.keys(driverTally).map(key => {
                 return driverTally[key];
               });
-              console.log(returned);
               return returned;
             })
           });

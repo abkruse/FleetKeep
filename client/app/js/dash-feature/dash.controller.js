@@ -148,7 +148,7 @@
             type: 'bar',
             events: {
               load: function(event) {
-                console.log(event);
+                console.log('bar');
               }
             }
           }
