@@ -8,7 +8,7 @@
     LoginFactory.$inject = ['$http', '$window'];
 
     function LoginFactory($http, $window) {
-      var url = 'https://fleetkeep.herokuapp.com/users/';
+      var url = 'http://fleetkeep.herokuapp.com/users/';
 
       return {
         createCurrentUser: function(user, token) {
