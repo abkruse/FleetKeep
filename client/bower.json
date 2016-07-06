@@ -15,6 +15,7 @@
   "dependencies": {
     "highcharts": "^4.2.5",
     "highcharts-ng": "^0.0.11",
-    "angular-moment": "^0.10.3"
+    "angular-moment": "^0.10.3",
+    "angular-signature": "^0.1.8"
   }
 }

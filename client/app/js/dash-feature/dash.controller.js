@@ -154,10 +154,11 @@
           }
         },
         xAxis: {
-          categories: ['1', '2', '3', '4'],
+          categories: ['Newyork', 'Brady', 'Willis', 'Jones'],
           title: {
             text: 'Driver IDs'
-          }
+          },
+          crosshair: true
         },
         yAxis: {
           min: 0,
@@ -170,22 +171,19 @@
           }
         },
         plotOptions: {
-          bar: {
-            dataLabels: {
-              enabled: true
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
             }
-          }
-        },
-        legend: {
-          layout: 'vertical',
-          align: 'right'
         },
         data: {
           complete: function(options) {
             DashFactory.getBars().then( (data) => {
-              ctrl.barConfig.series[0].data.push(data);
+              data.forEach(function(data) {
+                ctrl.barConfig.series[0].data.push(data);
+              })
             })
-          }
+          }()
         },
         series: [{
           data: []
