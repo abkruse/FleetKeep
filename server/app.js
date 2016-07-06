@@ -29,10 +29,9 @@ app.use(express.static(path.join(__dirname, '../client')));
 app.options('*', cors());
 app.use(cors());
 
-// app.use('/api', api);
 app.use('/', routes);
 app.use('/users', users);
-// app.use('/dash', dash);
+app.use('/dash', dash);
 app.use('/report', report);
 
 // catch 404 and forward to error handler
