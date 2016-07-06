@@ -11,6 +11,6 @@ FleetKeep is focused on allowing a driver or other employee to login and easily 
 - Node.js
 - Express.js
 - HelloSign API
-- Periscope Data
+- Highcharts
 - Knex.js
 - PostgreSQL
