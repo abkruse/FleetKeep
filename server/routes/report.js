@@ -3,7 +3,36 @@ var router = express.Router();
 var knex = require('../db/knex');
 var Reports = require('../models/reports');
 var Vehicles = require('../models/vehicles');
-var Damages = require('../models/damages')
+var Damages = require('../models/damages');
+var Uploader = require('s3-uploader');
+
+var client = new Uploader('fleetkeep-reports', {
+  aws: {
+    path: 'reports/',
+    region: 'us-standard',
+    acl: 'public-read',
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_KEY
+  },
+
+  cleanup: {
+    versions: true,
+    original: false
+  },
+
+  original: {
+    awsImageAcl: 'private'
+  },
+
+  versions: [{
+    maxWidth: 595.28,
+    maxHeight: 841.89,
+    format: 'pdf',
+    quality: 80,
+    awsImageExpires: 31536000,
+    awsImageMaxAge: 31536000
+  }]
+});
 
 router.get('/', function(req, res, next) {
   Reports.getAll().then( (data) => {
@@ -62,6 +91,17 @@ router.get('/damages/:id', function(req, res, next) {
 router.post('/', function(req, res, next) {
   Reports.add(req.body).then( (data)=> {
     res.send(data);
+  });
+});
+
+router.post('/review', function(req, res, next) {
+  client.upload('path/to/file', {}, function(err, versions, meta) {
+    if (err) {
+      console.log(err);
+    }
+    versions.forEach(function(image) {
+      console.log(image.width, image.height, image.url);
+    });
   });
 });
 
