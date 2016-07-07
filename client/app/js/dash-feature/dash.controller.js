@@ -186,7 +186,8 @@
           }()
         },
         series: [{
-          data: []
+          data: [],
+          name: 'Drivers'
         }],
         title: {
           text: 'Drivers Responsible for Damage'

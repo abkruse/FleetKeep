@@ -91,7 +91,7 @@
             });
 
             return Promise.all(requests).then( function() {
-              returned = Object.keys(driverTally).map(key => {
+              returned = Object.keys(driverTally).map(function(key) {
                 return driverTally[key];
               });
               return returned;
