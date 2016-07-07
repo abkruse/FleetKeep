@@ -53,7 +53,7 @@
       }
 
       ctrl.confirm = function() {
-        var img = signPad.toDataURL('image/jpeg')
+        var img = signPad.toDataURL('image/jpeg');
         console.log(img);
       }
     }
