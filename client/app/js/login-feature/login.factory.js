@@ -19,18 +19,14 @@
 
         login: function(user) {
           return $http.post(url + 'login',  user).then( function(data) {
-            var user = data.data.user.id;
-            var token = data.data.token;
-            this.createCurrentUser(user, token);
+            return data;
           })
         },
 
         addUser: function(user) {
           return $http.post(url + 'signup', user).then( function(data) {
-            var user = data.data.user.id
-            var token = data.data.token
-            this.createCurrentUser(user, token);
-          })
+            return data;
+          });
         }
       }
     }
