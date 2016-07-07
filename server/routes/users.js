@@ -5,7 +5,7 @@ var bcrypt = require('bcrypt');
 var path = require('path');
 var jwt = require('jsonwebtoken');
 var token;
-var Users = require('../models/users');
+var UsersTable = require('../models/users');
 var Companies = require('../models/companies');
 
 function Users() {
@@ -53,7 +53,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-  Users.getOne(req.params.id).then( function(data) {
+  UsersTable.getOne(req.params.id).then( function(data) {
     res.send(data);
   });
 });
