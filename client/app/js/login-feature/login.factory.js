@@ -8,7 +8,7 @@
     LoginFactory.$inject = ['$http', '$window'];
 
     function LoginFactory($http, $window) {
-      // const url = 'http://localhost:3000/users/'
+      // var url = 'http://localhost:3000/users/'
       var url = 'https://fleetkeep.herokuapp.com/users/';
 
       return {
@@ -18,17 +18,17 @@
         },
 
         login: function(user) {
-          return $http.post(url + 'login',  user).then( (data) => {
-            const user = data.data.user.id
-            const token = data.data.token
+          return $http.post(url + 'login',  user).then( function(data) {
+            var user = data.data.user.id
+            var token = data.data.token
             this.createCurrentUser(user, token);
           })
         },
 
         addUser: function(user) {
-          return $http.post(url + 'signup', user).then( (data) => {
-            const user = data.data.user.id
-            const token = data.data.token
+          return $http.post(url + 'signup', user).then( function(data) {
+            var user = data.data.user.id
+            var token = data.data.token
             this.createCurrentUser(user, token);
           })
         }

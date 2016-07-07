@@ -8,8 +8,8 @@
     ReviewCtrl.$inject = ['ReviewFactory', '$stateParams', '$state'];
 
     function ReviewCtrl(ReviewFactory, $stateParams, $state) {
-      let ctrl = this;
-      let damageId = $stateParams.id;
+      var ctrl = this;
+      var damageId = $stateParams.id;
 
       ctrl.user = ReviewFactory.getUser();
 

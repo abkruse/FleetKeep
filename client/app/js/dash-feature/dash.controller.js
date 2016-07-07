@@ -8,7 +8,7 @@
     DashCtrl.$inject = ['DashFactory', '$state', '$window'];
 
     function DashCtrl(DashFactory, $state, $window) {
-      let ctrl = this;
+      var ctrl = this;
 
       ctrl.user = DashFactory.getUser();
 
@@ -17,10 +17,10 @@
         $state.go('home');
       }
 
-      DashFactory.getLatestDamages().then( (reports)=> {
-        const working = [];
-        const all = [];
-        const out = [];
+      DashFactory.getLatestDamages().then( function(reports) {
+        var working = [];
+        var all = [];
+        var out = [];
 
         reports.forEach(function(report) {
           if(report.status === null) {
@@ -40,7 +40,7 @@
         ctrl.out = out;
         ctrl.all = all;
         ctrl.reports = working;
-      }).catch((err) => {
+      }).catch( function(err) {
         console.log(err);
       });
 
@@ -121,7 +121,7 @@
 
         data: {
           complete: function(options) {
-            DashFactory.getPie().then( (data) => {
+            DashFactory.getPie().then( function(data) {
               data.forEach(function(data) {
                 ctrl.pieConfig.series[0].data.push(data);
               })
@@ -178,7 +178,7 @@
         },
         data: {
           complete: function(options) {
-            DashFactory.getBars().then( (data) => {
+            DashFactory.getBars().then( function(data) {
               data.forEach(function(data) {
                 ctrl.barConfig.series[0].data.push(data);
               })

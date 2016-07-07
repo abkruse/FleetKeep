@@ -8,26 +8,26 @@
     DashFactory.$inject = ['$http', '$window'];
 
     function DashFactory($http, $window) {
-      const url = 'https://fleetkeep.herokuapp.com/';
+      var url = 'https://fleetkeep.herokuapp.com/';
 
       return {
         getUser: function() {
-          let user = $window.localStorage.getItem('user');
+          var user = $window.localStorage.getItem('user');
           return user;
         },
 
         getLatestDamages: function() {
-          return $http.get(url + 'dash/damages').then( (data)=> {
+          return $http.get(url + 'dash/damages').then( function(data) {
             return data.data;
           });
         },
 
         getPie: function() {
-          return $http.get(url + 'dash/damages').then( (data) => {
-            const known = data.data;
-            const returned = { 'Pending': 0, 'Reviewed':0, 'Out of Service': 0};
-            let statuses = [];
-            let j = 0;
+          return $http.get(url + 'dash/damages').then( function(data) {
+            var known = data.data;
+            var returned = { 'Pending': 0, 'Reviewed':0, 'Out of Service': 0};
+            var statuses = [];
+            var j = 0;
 
             for (var i = 0; i < known.length; i++) {
               returned[known[i].status] += 1;
@@ -55,16 +55,16 @@
         // },
 
         getBars: function() {
-          return $http.get(url + 'dash/damages').then( (data) => {
-            const reported = data.data;
-            const driverTally = { '1':0, '2':0, '3':0, '4':0 };
-            let n = 0;
-            let returned = [];
-            let requests = [];
+          return $http.get(url + 'dash/damages').then( function(data) {
+            var reported = data.data;
+            var driverTally = { '1':0, '2':0, '3':0, '4':0 };
+            var n = 0;
+            var returned = [];
+            var requests = [];
 
             reported.forEach(function(reports) {
 
-              requests.push($http.get(url + 'dash/vehicles/' + reports.truck_id).then( (data) => {
+              requests.push($http.get(url + 'dash/vehicles/' + reports.truck_id).then( function(data) {
                 var truckReports = data.data;
                 var diffs = []
 
@@ -90,7 +90,7 @@
               }));
             });
 
-            return Promise.all(requests).then( () => {
+            return Promise.all(requests).then( function() {
               returned = Object.keys(driverTally).map(key => {
                 return driverTally[key];
               });

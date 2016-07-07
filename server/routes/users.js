@@ -53,13 +53,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-  Users.getOne(req.params.id).then( (data) => {
+  Users.getOne(req.params.id).then( function(data) {
     res.send(data);
   });
 });
 
 router.get('/company/:id', function(req, res, next) {
-  Companies.getOne(req.params.id).then( (data) => {
+  Companies.getOne(req.params.id).then( function(data) {
     res.send(data);
   })
 })

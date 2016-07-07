@@ -8,7 +8,7 @@
     ReportCtrl.$inject= ['ReportFactory', '$state'];
 
     function ReportCtrl(ReportFactory, $state) {
-      let ctrl = this;
+      var ctrl = this;
 
       ctrl.user = ReportFactory.getUser();
       ctrl.damages = [];
@@ -18,18 +18,18 @@
         $state.go('home');
       }
 
-      ReportFactory.getVehicles().then( (data) => {
+      ReportFactory.getVehicles().then( function(data) {
         ctrl.allVehicles = data;
       })
 
       ctrl.begin = function(truck_id) {
         ctrl.truckID = truck_id;
 
-        ReportFactory.getTruckImage(truck_id).then( (data)=> {
-          const body = data.data.body;
+        ReportFactory.getTruckImage(truck_id).then( function(data) {
+          var body = data.data.body;
           return body;
         }).then( (body) => {
-          let img ='images/' + body + '.jpg';
+          var img ='images/' + body + '.jpg';
           var cnvs = document.getElementById('canvas');
           var ctx = cnvs.getContext('2d');
           var imgObj = new Image();
@@ -39,20 +39,20 @@
 
           }
           imgObj.src = img;
-        }).then( ()=> {
+        }).then( function() {
           this.getDamage(truck_id);
-        }).catch( (err)=> {
+        }).catch( function(err) {
           console.log(err);
         });
       }
 
       ctrl.getDamage = function(call) {
-        ReportFactory.getTruckDamage(call).then( (data)=> {
-          let marks = data;
+        ReportFactory.getTruckDamage(call).then( function(data) {
+          var marks = data;
 
           ctrl.prevDam = marks;
           this.addDamageMarks(marks);
-        }).catch( (err) => {
+        }).catch( function(err) {
           console.log(err);
         })
       }
@@ -115,9 +115,8 @@
           report.damage_bool = true;
         }
 
-        ReportFactory.submitReport(report, ctrl.user, ctrl.damages).then( (data) => {
-          const id = data.data[0];
-          // $state.go('dash');
+        ReportFactory.submitReport(report, ctrl.user, ctrl.damages).then( function(data)  {
+          var id = data.data[0];
           $state.go('confirm', { id: id });
         }).catch((err)=> {
           console.log(err);

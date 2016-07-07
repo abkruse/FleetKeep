@@ -8,7 +8,7 @@
     ReviewFactory.$inject = ['$http', '$window'];
 
     function ReviewFactory($http, $window) {
-      const url = 'https://fleetkeep.herokuapp.com/';
+      var url = 'https://fleetkeep.herokuapp.com/';
 
       return{
         getUser: function() {
@@ -17,7 +17,7 @@
         },
 
         getDamage: function(id) {
-          return $http.get(url + 'report/damages/' + id).then( (data)=> {
+          return $http.get(url + 'report/damages/' + id).then( function(data) {
             return data.data;
           })
         },
@@ -27,7 +27,7 @@
           review.sup_Id = parseInt(user);
           review.review_time = now;
 
-          return $http.put(url + 'report/damages/' + id + '/update', review).then( (data)=> {
+          return $http.put(url + 'report/damages/' + id + '/update', review).then( function(data) {
             return data;
           });
         }

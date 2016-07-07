@@ -10,13 +10,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/damages', function(req, res, next) {
-  Damages.getAll().then( (data) => {
+  Damages.getAll().then( function(data) {
     res.send(data);
   })
 });
 
 router.get('/vehicles/:call', function(req, res, next) {
-  Reports.getByTruck(req.params.call).then( (data)=> {
+  Reports.getByTruck(req.params.call).then( function(data) {
     res.send(data);
   })
 })

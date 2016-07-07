@@ -6,7 +6,7 @@ var Vehicles = require('../models/vehicles');
 var Damages = require('../models/damages');
 var Uploader = require('s3-uploader');
 
-var client = new Uploader('fleetkeep-reports', {
+var client = new Uploader(process.env.S3_BUCKET, {
   aws: {
     path: 'reports/',
     region: 'us-standard',
@@ -35,13 +35,13 @@ var client = new Uploader('fleetkeep-reports', {
 });
 
 router.get('/', function(req, res, next) {
-  Reports.getAll().then( (data) => {
+  Reports.getAll().then( function(data) {
     res.send(data);
   });
 });
 
 router.get('/:id', function(req, res, next) {
-  Reports.getOne(req.params.id).then( (data)=> {
+  Reports.getOne(req.params.id).then( function(data) {
     res.send(data);
   });
 });
@@ -60,26 +60,26 @@ router.get('/:id', function(req, res, next) {
 // });
 
 router.get('/:id/driver', function(req, res, next) {
-  Reports.getByDriver(req.params.id).then( (data)=> {
+  Reports.getByDriver(req.params.id).then( function(data) {
     res.send(data);
   });
 });
 
 router.get('/vehicles/all', function(req, res, next) {
-  Vehicles.getAll().then( (data) => {
+  Vehicles.getAll().then( function(data) {
     res.send(data);
   })
 })
 
 router.get('/vehicles/:call', function(req, res, next) {
-  Vehicles.getOne(req.params.call).then( (data) => {
+  Vehicles.getOne(req.params.call).then( function(data) {
     res.send(data);
   })
 })
 
 router.get('/damages/truck/:call', function(req, res, next) {
-  knex.from('damages').innerJoin('users', 'damages.driver_id', 'users.id').then( (data) => {
-    let relevant = [];
+  knex.from('damages').innerJoin('users', 'damages.driver_id', 'users.id').then( function(data) {
+    var relevant = [];
     data.forEach(function(data) {
       if(data.truck_id === req.params.call) {
         relevant.push(data);
@@ -90,18 +90,18 @@ router.get('/damages/truck/:call', function(req, res, next) {
 });
 
 router.get('/damages/:id', function(req, res, next) {
-  Damages.getOne(req.params.id).then( (data) => {
+  Damages.getOne(req.params.id).then( function(data) {
     res.send(data);
   })
 })
 
 router.post('/', function(req, res, next) {
-  Reports.add(req.body).then( (data)=> {
+  Reports.add(req.body).then( function(data) {
     res.send(data);
   });
 });
 
-router.post('/review', function(req, res, next) {
+router.post('/confirm', function(req, res, next) {
   client.upload('path/to/file', {}, function(err, versions, meta) {
     if (err) {
       console.log(err);
@@ -113,25 +113,25 @@ router.post('/review', function(req, res, next) {
 });
 
 router.post('/damages', function(req, res, next) {
-  Damages.add(req.body).then( (data) => {
+  Damages.add(req.body).then( function(data) {
     res.send(data);
   })
 })
 
 router.put('/:id/update', function(req, res, next) {
-  Reports.update(req.params.id, req.body).then( (data) => {
+  Reports.update(req.params.id, req.body).then( function(data) {
     res.sendStatus(200);
   });
 });
 
 router.put('/damages/:id/update', function(req, res, next) {
-  Damages.update(req.params.id, req.body).then( (data) => {
+  Damages.update(req.params.id, req.body).then( function(data) {
     res.sendStatus(200);
   })
 })
 
 router.delete('/:id/delete', function(req, res, next) {
-  Reports.remove(req.params.id).then( (data) => {
+  Reports.remove(req.params.id).then( function(data) {
     res.sendStatus(200);
   })
 })

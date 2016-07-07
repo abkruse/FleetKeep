@@ -8,24 +8,24 @@
     ConfirmCtrl.$inject = ['ConfirmFactory', '$stateParams'];
 
     function ConfirmCtrl(ConfirmFactory, $stateParams) {
-      let ctrl = this;
+      var ctrl = this;
       ctrl.reportID = $stateParams.id;
 
-      ctrl.user = ConfirmFactory.getUser().then( (data) => {
+      ctrl.user = ConfirmFactory.getUser().then( function(data) {
 
         this.getCompany(data.company_id);
         return data;
       });
 
       ctrl.getCompany = function(id) {
-        ConfirmFactory.getCompany(id).then( (data)=> {
+        ConfirmFactory.getCompany(id).then( function(data) {
           ctrl.company = data;
-        }).catch( (err)=> {
+        }).catch( function(err) {
           console.log(err);
         });
       }
 
-      ctrl.reported = ConfirmFactory.getReport(ctrl.reportID).then( (data)=> {
+      ctrl.reported = ConfirmFactory.getReport(ctrl.reportID).then( function(data) {
         return data;
       });
 

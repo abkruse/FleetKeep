@@ -11,16 +11,16 @@
       var ctrl = this;
 
       ctrl.login = function(user) {
-        LoginFactory.login(user).then( () => {
+        LoginFactory.login(user).then( function() {
           $state.go('dash');
-        }).catch( (err) => {
+        }).catch( function(err) {
           console.log(err);
         });
       }
       ctrl.addUser = function(user) {
-        LoginFactory.addUser(user).then( () => {
+        LoginFactory.addUser(user).then( function() {
           $state.go('dash')
-        }).catch( (err) => {
+        }).catch( function(err) {
           console.log(err);
         });
       }
