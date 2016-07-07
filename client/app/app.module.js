@@ -45,6 +45,11 @@
           templateUrl: 'views/review.html',
           controller: 'ReviewCtrl as ctrl',
           restricted: true
+        })
+        .state('confirm', {
+          url:'/confirm/:id',
+          templateUrl: 'views/confirm.html',
+          controller: 'ConfirmCtrl as ctrl'
         });
 
         // $locationProvider.html5Mode(true);

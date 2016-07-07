@@ -1,0 +1,186 @@
+<nav>
+  <div class='nav-wrapper'>
+    <a href='#/dash' class='brand-logo'>FleetKeep</a>
+    <ul class='right hide-on-med-and-down'>
+      <li>
+        <a href='#'>Settings</a>
+      </li>
+      <li ng-click='ctrl.logout()'>
+        <a href='#'>Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<p>Please review and sign</p>
+<h4>Driver Daily Pre-Trip Report</h4>
+<p class='confirm-group'>
+  Date of Report: {{ctrl.reported.$$state.value.created_at | date : format: short}}
+</p>
+<p class='confirm-group'>
+  Driver Name: {{ctrl.reported.$$state.value.driver_id}}
+</p>
+<p>
+  Company: GET COMPANY NAME
+</p>
+<p>
+  Truck No.: {{ctrl.reported.$$state.value.truck_id}}
+</p>
+<p>
+  Odometer Reading: {{ctrl.reported.$$state.value.odo_num}}
+</p>
+<p>
+  Completed DVIR? {{ctrl.reported.$$state.value.dvir_bool}}
+</p>
+<div class='dvir row'>
+  <form class='col s9 offset-s1'>
+    <p>
+      Checked box indicates inspection completed and no issue found
+    </p>
+    <div class='container'>
+
+    </div>
+      <div class='container col s3'>
+        <label for='engine'>Engine Compartment</label>
+        <p>
+          <input class='engine' type="checkbox" id="fluid-levels" checked/>
+          <label for="fluid-levels">Fluid Levels</label>
+        </p>
+        <p>
+          <input class='engine' type="checkbox" id="Belts" checked/>
+          <label for="Belts">Belts & Hose</label>
+        </p>
+        <p>
+          <input class='engine' type="checkbox" id="leaks" checked/>
+          <label for="leaks">Fluid Leaks</label>
+        </p>
+        <label for='exterior'>Exterior</label>
+        <p>
+          <input class='exterior' type="checkbox" id="lights" checked/>
+          <label for="lights">Lights</label>
+        </p>
+        <p>
+          <input class='exterior' type="checkbox" id="reflectors" checked/>
+          <label for="reflectors">Reflectors</label>
+        </p>
+        <p>
+          <input class='exterior' type="checkbox" id="fuel-tanks" checked/>
+          <label for="fuel-tanks">Fuel Tanks</label>
+        </p>
+        <p>
+          <input class='exterior' type="checkbox" id="lines" checked/>
+          <label for="lines">Air/Elect Lines</label>
+        </p>
+        <p>
+          <input class='exterior' type="checkbox" id="brakes" checked/>
+          <label for="brakes">Brakes & Drum</label>
+        </p>
+        <p>
+          <input class='exterior' type="checkbox" id="splash" checked/>
+          <label for="splash">Splash Guard</label>
+        </p>
+        <p>
+          <input class='exterior' type="checkbox" id="springs" checked/>
+          <label for="springs">Springs & Shocks</label>
+        </p>
+      </div>
+      <div class='container col s3'>
+        <p>
+          <input class='exterior' type="checkbox" id="mirrors" checked/>
+          <label for="mirrors">Mirrors</label>
+        </p>
+        <p>
+          <input class='exterior' type="checkbox" id="tires" checked/>
+          <label for="tires">Tires & Wheels</label>
+        </p>
+        <p>
+          <input class='exterior' type="checkbox" id="body" checked/>
+          <label for="body">Body, Doors, & Locks</label>
+        </p>
+        <label for='cab'>Cab</label>
+        <p>
+          <input class='cab' type="checkbox" id="horn" checked/>
+          <label for="horn">Horn(s)</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="steering" checked/>
+          <label for="steering">Steering</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="heating" checked/>
+          <label for="heating">Heater/Defroster</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="trans" checked/>
+          <label for="trans">Transmission</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="panel_lights" checked/>
+          <label for="panel_lights">Panel Lights</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="clutch" checked/>
+          <label for="clutch">Clutch</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="brake" checked/>
+          <label for="brake">Brake System</label>
+        </p>
+      </div>
+      <div class='container col s3'>
+        <p>
+          <input class='cab' type="checkbox" id="diff" checked/>
+          <label for="diff">Differential</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="emergency" checked/>
+          <label for="emergency">Emergency Equip.</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="windows" checked/>
+          <label for="windows">Windows & Wipers</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="gauges_indicators" checked/>
+          <label for="gauges_indicators">Gauges & Indicators</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="seat_belts" checked/>
+          <label for="seat_belts">Seat Belts</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="battery" checked/>
+          <label for="battery">Battery</label>
+        </p>
+        <p>
+          <input class='cab' type="checkbox" id="exhaust" checked/>
+          <label for="exhaust">Exhaust</label>
+        </p>
+        <label for='other'>Other</label>
+        <p>
+          <input class='other' type="checkbox" id="fifth" checked/>
+          <label for="fifth">Fifth Wheel</label>
+        </p>
+        <p>
+          <input class='other' type="checkbox" id="landing" checked/>
+          <label for="landing">Landing Gear</label>
+        </p>
+        <p>
+          <input class='other' type="checkbox" id="pin" checked/>
+          <label for="pin">King Pin</label>
+        </p>
+      </div>
+    </div>
+  </form>
+</div>
+<p>
+  Any damage to report? {{ctrl.$$state.value.damage_bool}}
+</p>
+<p>
+  DAMAGE REPORT
+</p>
+<div class='row'>
+  <canvas class='col s6' id='sign-here'></canvas>
+</div>
+<button ng-click='ctrl.clearSign()' class="waves-effect waves-light btn-large col s2 offset-s3">Clear Signature</button>
+<button ng-click='ctrl.confirm()' class="waves-effect waves-light btn-large col s2 offset-s3">Confirm Report</button>
+</div>

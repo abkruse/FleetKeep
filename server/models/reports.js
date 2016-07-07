@@ -15,8 +15,7 @@ module.exports = {
     return Reports()
             .where({
                id:id
-            })
-            .first();
+            });
   },
 
   getByDriver: function(driver_id) {

@@ -41,16 +41,23 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-  knex.from('reports').innerJoin('damages', 'reports.id', 'damages.report_id').then( (data)=> {
-    let relevant = [];
-    data.forEach(function(data) {
-      if(data.id == req.params.id) {
-        relevant.push(data);
-      }
-    })
-    res.send(relevant);
+  Reports.getOne(req.params.id).then( (data)=> {
+    res.send(data);
   });
 });
+
+// router.get('/:id', function(req, res, next) {
+//   knex.from('reports').innerJoin('damages', 'reports.id', 'damages.report_id').then( (data)=> {
+//     let data = data;
+//     let relevant = [];
+//     data.forEach(function(data) {
+//       if(data.id == req.params.id) {
+//         relevant.push(data);
+//       }
+//     })
+//     res.send(data, relevant);
+//   });
+// });
 
 router.get('/:id/driver', function(req, res, next) {
   Reports.getByDriver(req.params.id).then( (data)=> {

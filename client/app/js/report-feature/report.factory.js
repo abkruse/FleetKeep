@@ -8,7 +8,8 @@
     ReportFactory.$inject = ['$http', '$window'];
 
     function ReportFactory($http, $window) {
-      const url = 'https://fleetkeep.herokuapp.com/';
+      const url = 'http://localhost:3000/'
+      // const url = 'https://fleetkeep.herokuapp.com/';
 
       return {
         getUser: function() {
@@ -36,17 +37,16 @@
 
         submitReport: function(report, user, damages) {
           report.driver_id = parseInt(user);
-          console.log(damages);
 
-          return $http.post(url + 'report', report).then( (data) => {
+          return $http.post(url + 'report', report).then( (reportData) => {
             for(var i = 0; i < damages.length; i++) {
-              damages[i].report_id = data.data[0];
+              damages[i].report_id = reportData.data[0];
 
-              $http.post(url + 'report/damages', damages[i]).then( (data) => {
-                return data;
+              $http.post(url + 'report/damages', damages[i]).then( (damData) => {
+                return damData;
               })
             }
-            return data;
+            return reportData;
           });
         }
       }

@@ -116,7 +116,9 @@
         }
 
         ReportFactory.submitReport(report, ctrl.user, ctrl.damages).then( (data) => {
-          $state.go('dash');
+          const id = data.data[0];
+          // $state.go('dash');
+          $state.go('confirm', { id: id });
         }).catch((err)=> {
           console.log(err);
         });
