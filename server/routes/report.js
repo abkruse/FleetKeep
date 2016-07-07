@@ -6,7 +6,7 @@ var Vehicles = require('../models/vehicles');
 var Damages = require('../models/damages');
 var Uploader = require('s3-uploader');
 
-var client = new Uploader(process.env.S3_BUCKET, {
+var client = new Uploader('fleetkeep-reports', {
   aws: {
     path: 'reports/',
     region: 'us-standard',
