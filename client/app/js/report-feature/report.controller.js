@@ -28,7 +28,7 @@
         ReportFactory.getTruckImage(truck_id).then( function(data) {
           var body = data.data.body;
           return body;
-        }).then( (body) => {
+        }).then( function(body)  {
           var img ='images/' + body + '.jpg';
           var cnvs = document.getElementById('canvas');
           var ctx = cnvs.getContext('2d');
@@ -40,7 +40,7 @@
           }
           imgObj.src = img;
         }).then( function() {
-          this.getDamage(truck_id);
+          ctrl.getDamage(truck_id);
         }).catch( function(err) {
           console.log(err);
         });
@@ -51,7 +51,7 @@
           var marks = data;
 
           ctrl.prevDam = marks;
-          this.addDamageMarks(marks);
+          ctrl.addDamageMarks(marks);
         }).catch( function(err) {
           console.log(err);
         })

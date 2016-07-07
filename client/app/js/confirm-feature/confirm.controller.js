@@ -13,7 +13,7 @@
 
       ctrl.user = ConfirmFactory.getUser().then( function(data) {
 
-        this.getCompany(data.company_id);
+        ctrl.getCompany(data.company_id);
         return data;
       });
 
