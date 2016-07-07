@@ -11,9 +11,28 @@
       let ctrl = this;
       ctrl.reportID = $stateParams.id;
 
+      ctrl.user = ConfirmFactory.getUser().then( (data) => {
+
+        this.getCompany(data.company_id);
+        return data;
+      });
+
+      ctrl.getCompany = function(id) {
+        ConfirmFactory.getCompany(id).then( (data)=> {
+          ctrl.company = data;
+        }).catch( (err)=> {
+          console.log(err);
+        });
+      }
+
+      ctrl.reported = ConfirmFactory.getReport(ctrl.reportID).then( (data)=> {
+        return data;
+      });
+
       var cnvs = document.getElementById('sign-here');
 
       var signPad = new SignaturePad(cnvs, {
+        backgroundColor: 'rgb(255,255,255)',
         dotSize: .3,
         minWidth: 1,
         maxWidth: 2,
@@ -24,12 +43,6 @@
         signPad.clear();
       }
 
-      ctrl.user = ConfirmFactory.getUser();
-
-      ctrl.reported = ConfirmFactory.getReport(ctrl.reportID).then( (data)=> {
-        return data;
-      });
-
       ctrl.signature = function() {
         var cnvs = document.getElementById('sign-here');
         var signPad = new SignaturePad(cnvs, {
@@ -37,6 +50,11 @@
           maxWidth: 10,
           penColor: 'black'
         });
+      }
+
+      ctrl.confirm = function() {
+        var img = signPad.toDataURL('image/jpeg')
+        console.log(img);
       }
     }
 })();

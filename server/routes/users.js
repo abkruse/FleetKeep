@@ -5,6 +5,8 @@ var bcrypt = require('bcrypt');
 var path = require('path');
 var jwt = require('jsonwebtoken');
 var token;
+var Users = require('../models/users');
+var Companies = require('../models/companies');
 
 function Users() {
   return knex('users');
@@ -18,7 +20,6 @@ function checkHeaders(req,res,next){
     next();
   }
 }
-
 
 function checkToken(req,res,next){
   try {
@@ -48,8 +49,20 @@ function checkTokenForAll(req,res,next){
 router.use(checkHeaders);
 
 router.get('/', function(req, res, next) {
-  res.send('hola!');
+  res.send('Nothing to see here.');
 });
+
+router.get('/:id', function(req, res, next) {
+  Users.getOne(req.params.id).then( (data) => {
+    res.send(data);
+  });
+});
+
+router.get('/company/:id', function(req, res, next) {
+  Companies.getOne(req.params.id).then( (data) => {
+    res.send(data);
+  })
+})
 
 router.post('/signup',function(req,res){
   if(req.body.email.length < 4 || req.body.password.length < 4 ){

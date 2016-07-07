@@ -13,15 +13,24 @@
 
       return {
         getUser: function() {
-          let user = $window.localStorage.getItem('user');
-          return user;
+          const user = $window.localStorage.getItem('user');
+          const id = parseInt(user);
+
+          return $http.get(url + 'users/' + id).then( (data) => {
+            return data.data[0];
+          })
         },
 
         getReport: function(id) {
           return $http.get(url + 'report/' + id).then( (data) => {
-            console.log(data.data[0]);
             return data.data[0];
           });
+        },
+
+        getCompany: function(id) {
+          return $http.get(url + 'users/company/' + id).then( (data) => {
+            return data.data[0];
+          })
         }
       }
     }

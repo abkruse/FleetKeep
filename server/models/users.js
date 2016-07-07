@@ -10,8 +10,7 @@ module.exports = {
     return Users()
             .where({
               id:id
-            })
-            .first();
+            });
   },
 
   update: function(id, user) {
