@@ -52,9 +52,23 @@
         });
       }
 
-      ctrl.confirm = function() {
+      ctrl.print = function() {
+        var doc = new jsPDF();
+        var specialElementHandlers = {
+          '#editor':function (element, renderer) {
+            return true;
+          }
+        }
         var img = signPad.toDataURL('image/jpeg');
-        console.log(img);
+
+        doc.fromHTML($('#confirm-body').html(), 35, 35, {
+          'width': 170,
+          'elementHandlers': specialElementHandlers
+        });
+        doc.addImage(img, 'JPEG', 90, 225, 60, 30);
+        doc.autoPrint();
+        window.open(doc.output('bloburl'), '_blank');
+
       }
     }
 })();

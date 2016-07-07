@@ -10,20 +10,20 @@ nav {
   font-family: 'Exo 2', sans-serif;
 }
 
-.confirm-body {
-  background-color: white;
-  width: 75%;
-  margin-left: 12.5%;
-  padding-bottom: 1%;
-  margin-top: 1%;
-}
-
 .confirm-btns {
   padding-top: 1%;
 }
 
 .confirm-group {
   font-size: 125%;
+}
+
+#confirm-body {
+  background-color: white;
+  width: 75%;
+  margin-left: 12.5%;
+  padding-bottom: 1%;
+  margin-top: 1%;
 }
 
 #damage-report {
