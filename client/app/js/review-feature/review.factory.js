@@ -13,7 +13,7 @@
 
       return{
         getUser: function() {
-          let user = $window.localStorage.getItem('user');
+          var user = $window.localStorage.getItem('user');
           return user;
         },
 
@@ -24,7 +24,7 @@
         },
 
         updateStatus: function(user, id, review) {
-          let now = new Date();
+          var now = new Date();
           review.sup_Id = parseInt(user);
           review.review_time = now;
 
