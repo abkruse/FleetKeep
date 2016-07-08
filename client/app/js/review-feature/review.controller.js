@@ -21,9 +21,7 @@
       ctrl.report = ReviewFactory.getDamage(damageId);
 
       ctrl.updateStatus = function(review) {
-        // let damRep = this.report.$$state.value;
-
-        ReviewFactory.updateStatus(ctrl.user, damageId, review).then( (data)=> {
+        ReviewFactory.updateStatus(ctrl.user, damageId, review).then( function(data) {
           $state.go('dash');
         });
       }

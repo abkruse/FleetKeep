@@ -56,8 +56,8 @@
         var signature = signPad.toDataURL('image/jpeg');
         console.log(signature);
 
-        ConfirmFactory.confirm(signature).then(function (data) {
-          console.log(data);
+        ConfirmFactory.confirm(signature, ctrl.reportID).then(function (data) {
+          console.log(data)
         });
       }
 

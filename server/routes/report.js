@@ -82,10 +82,10 @@ router.post('/', function(req, res, next) {
   });
 });
 
-router.post('/confirm', function(req, res, next) {
+router.post('/confirm/:id', function(req, res, next) {
   var img = req.body.signature.replace(/^data:image\/\w+;base64,/, "");
   console.log(img);
-  putter.put(img, 'Reports/success.jpg', 'image/jpeg', 'public-read');
+  putter.put(img, 'Reports/' + req.params.id +'.jpg', 'image/jpeg', 'public-read');
 
   putter.on('progress', function(data) {
     console.log('progress', data);

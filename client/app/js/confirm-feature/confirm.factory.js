@@ -33,8 +33,8 @@
           })
         },
 
-        confirm: function(signature) {
-          return $http.post(url + 'report/confirm', { signature:signature }).then( function(data) {
+        confirm: function(signature, id) {
+          return $http.post(url + 'report/confirm/' + id, { signature:signature }).then( function(data) {
             return data;
           });
         }
