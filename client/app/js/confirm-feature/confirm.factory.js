@@ -31,6 +31,12 @@
           return $http.get(url + 'users/company/' + id).then( function(data) {
             return data.data[0];
           })
+        },
+
+        confirm: function(signature) {
+          return $http.post(url + 'confirm', signature).then( function(data) {
+            return data;
+          });
         }
       }
     }

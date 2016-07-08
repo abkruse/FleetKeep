@@ -52,18 +52,27 @@
         });
       }
 
+      ctrl.confirm = function() {
+        var signature = signPad.toDataURL('image/jpeg');
+        console.log(signature);
+
+        ConfirmFactory.confirm(signature).then(function (data) {
+          console.log(data);
+        });
+      }
+
       ctrl.print = function() {
         var doc = new jsPDF();
-        var specialElementHandlers = {
-          '#editor':function (element, renderer) {
-            return true;
-          }
-        }
+        // var specialElementHandlers = {
+        //   '#editor':function (element, renderer) {
+        //     return true;
+        //   }
+        // }
         var img = signPad.toDataURL('image/jpeg');
 
         doc.fromHTML($('#confirm-body').html(), 35, 35, {
           'width': 170,
-          'elementHandlers': specialElementHandlers
+          // 'elementHandlers': specialElementHandlers
         });
         doc.addImage(img, 'JPEG', 90, 225, 60, 30);
         doc.autoPrint();

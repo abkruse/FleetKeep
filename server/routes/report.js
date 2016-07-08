@@ -5,6 +5,8 @@ var Reports = require('../models/reports');
 var Vehicles = require('../models/vehicles');
 var Damages = require('../models/damages');
 var Uploader = require('s3-uploader');
+var multer = require('multer');
+var upload = multer({ dest: 'uploads/'});
 
 var client = new Uploader('fleetkeep-reports', {
   aws: {
@@ -101,15 +103,16 @@ router.post('/', function(req, res, next) {
   });
 });
 
-router.post('/confirm', function(req, res, next) {
-  client.upload('path/to/file', {}, function(err, versions, meta) {
-    if (err) {
-      console.log(err);
-    }
-    versions.forEach(function(image) {
-      console.log(image.width, image.height, image.url);
-    });
-  });
+router.post('/confirm', upload.single('img'), function(req, res, next) {
+  console.log(req.file);
+  // client.upload('path/to/file', {}, function(err, versions, meta) {
+  //   if (err) {
+  //     console.log(err);
+  //   }
+  //   versions.forEach(function(image) {
+  //     console.log(image.width, image.height, image.url);
+  //   });
+  // });
 });
 
 router.post('/damages', function(req, res, next) {
