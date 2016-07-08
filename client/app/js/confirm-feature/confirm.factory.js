@@ -8,8 +8,8 @@
     ConfirmFactory.$inject = ['$http', '$window'];
 
     function ConfirmFactory ($http, $window) {
-      // var url = 'http://localhost:3000/'
-      var url = 'https://fleetkeep.herokuapp.com/';
+      var url = 'http://localhost:3000/'
+      // var url = 'https://fleetkeep.herokuapp.com/';
 
       return {
         getUser: function() {
@@ -34,7 +34,7 @@
         },
 
         confirm: function(signature) {
-          return $http.post(url + 'confirm', signature).then( function(data) {
+          return $http.post(url + 'report/confirm', { signature:signature }).then( function(data) {
             return data;
           });
         }

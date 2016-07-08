@@ -4,37 +4,16 @@ var knex = require('../db/knex');
 var Reports = require('../models/reports');
 var Vehicles = require('../models/vehicles');
 var Damages = require('../models/damages');
-var Uploader = require('s3-uploader');
-var multer = require('multer');
-var upload = multer({ dest: 'uploads/'});
+var Putter = require('base64-string-s3');
+require('dotenv').load();
 
-var client = new Uploader('fleetkeep-reports', {
-  aws: {
-    path: 'reports/',
-    region: 'us-standard',
-    acl: 'public-read',
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_KEY
-  },
+var options = {
+  key: process.env.AWS_ACCESS_KEY_ID,
+  secret: process.env.AWS_SECRET_ACCESS_KEY,
+  bucket: 'fleetkeep-reports',
+}
 
-  cleanup: {
-    versions: true,
-    original: false
-  },
-
-  original: {
-    awsImageAcl: 'private'
-  },
-
-  versions: [{
-    maxWidth: 595.28,
-    maxHeight: 841.89,
-    format: 'pdf',
-    quality: 80,
-    awsImageExpires: 31536000,
-    awsImageMaxAge: 31536000
-  }]
-});
+var putter = new Putter(options);
 
 router.get('/', function(req, res, next) {
   Reports.getAll().then( function(data) {
@@ -103,16 +82,29 @@ router.post('/', function(req, res, next) {
   });
 });
 
-router.post('/confirm', upload.single('img'), function(req, res, next) {
-  console.log(req.file);
-  // client.upload('path/to/file', {}, function(err, versions, meta) {
-  //   if (err) {
-  //     console.log(err);
-  //   }
-  //   versions.forEach(function(image) {
-  //     console.log(image.width, image.height, image.url);
-  //   });
-  // });
+router.post('/confirm', function(req, res, next) {
+  var img = req.body.signature.replace(/^data:image\/\w+;base64,/, "");
+  console.log(img);
+  putter.put(img, 'Reports/success.jpg', 'image/jpeg', 'public-read');
+
+  putter.on('progress', function(data) {
+    console.log('progress', data);
+  });
+
+  putter.on('response', function(data) {
+    console.log('response', data);
+    res.json(data);
+  });
+
+  putter.on('error', function (err) {
+    console.error(err);
+    res.status(500);
+    res.json(err);
+  });
+
+  putter.on('close', function () {
+      console.log('closed connection');
+  });
 });
 
 router.post('/damages', function(req, res, next) {
