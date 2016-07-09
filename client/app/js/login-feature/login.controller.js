@@ -17,7 +17,11 @@
 
           LoginFactory.createCurrentUser(user, token);
 
-          $state.go('dash');
+          if(user === 1) {
+            $state.go('dash');
+          } else {
+            $state.go('driver');
+          }
         }).catch( function(err) {
           console.log(err);
         });
@@ -29,7 +33,11 @@
 
           LoginFactory.createCurrentUser(user, token);
 
-          $state.go('dash')
+          if(user === 1) {
+            $state.go('dash');
+          } else {
+            $state.go('driver');
+          }
         }).catch( function(err) {
           console.log(err);
         });
