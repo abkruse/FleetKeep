@@ -11,32 +11,47 @@
     </ul>
   </div>
 </nav>
-<h4>Supervisor Dashboard</h4>
+<div class='row'>
+  <h4 class='col s6 offset-s4'>Supervisor Dashboard</h4>
+</div>
 <div class='row'>
   <a href='/#/report'><button class="waves-effect waves-light btn-large col s2 offset-s5">New Report</button></a>
 </div>
 <p>
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </p>
-<div class='row'>
-  <highchart id="status-pie" class='col s6' config="ctrl.pieConfig"></highchart>
-  <highchart id="damage-bar" class='col s6' config="ctrl.barConfig"></highchart>
+<div class='row charts'>
+  <highchart id="status-pie" class='col s4 offset-s1' config="ctrl.pieConfig"></highchart>
+  <highchart id="damage-bar" class='col s4 offset-s1' config="ctrl.barConfig"></highchart>
 </div>
 <!-- <div class='row'>
   <highchart id="status-line" class='col s6' config="ctrl.lineConfig"></highchart>
 </div> -->
-<div class='row'>
-  <h5 class='col s6 offset-s1'>Vehicles with Current Damage Reports</h5>
+<div class='row damRep-table'>
+  <h5 class='col s4'>Vehicles with Current Damage Reports</h5>
   <div class='form-group'>
-    <p class='col s1 offset-s1'>View By:</p>
+    <label class='col s1 offset-s1' for='select'>View By:</label>
   </div>
-  <select class="browser-default col s2" ng-model='ctrl.selection'>
+  <select id='select' class="browser-default col s2" ng-model='ctrl.selection'>
     <option value="" disabled selected>Choose your option</option>
     <option value='driver_id'>Driver ID</option>
     <option value='truck_id'>Truck ID</option>
     <option value='status'>Status</option>
     <option value='created_at'>Date of Report</option>
   </select>
+  <div class='form-group'>
+    <label class='col s1' for='limit'>Limit to:</label>
+  </div>
+  <div class='form-group'>
+    <select id='limit' class="browser-default col s2" ng-model='ctrl.limit'>
+      <option value="" disabled selected>Choose your option</option>
+      <option value='5'>5</option>
+      <option value='10'>10</option>
+      <option value='15'>15</option>
+      <option value='20'>20</option>
+      <option value=''>All</option>
+    </select>
+  </div>
 </div>
 <div class='row'>
   <table class='col s10 offset-s1 highlight'>
@@ -58,7 +73,7 @@
       </th>
     </thead>
     <tbody>
-      <tr ng-repeat='report in ctrl.reports | orderBy: ctrl.selection || status:true'>
+      <tr ng-repeat='report in ctrl.reports | orderBy: ctrl.selection || status:true | limitTo: ctrl.limit || 10'>
         <td>
           {{report.truck_id}}
         </td>

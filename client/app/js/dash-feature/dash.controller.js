@@ -155,15 +155,12 @@
         },
         xAxis: {
           categories: ['Newyork', 'Brady', 'Willis', 'Jones'],
-          title: {
-            text: 'Driver IDs'
-          },
           crosshair: true
         },
         yAxis: {
           min: 0,
           title: {
-            text: 'Damages reported after use',
+            text: '*Vehicles were reported damaged after used by these drivers',
             align: 'high'
           },
           label: {
