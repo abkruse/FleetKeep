@@ -110,6 +110,14 @@ h4 {
   margin-top: 8%;
 }
 
+.oos-table {
+  background-color: RGBA(255, 255, 255, 1);
+}
+
+.sup-table1 {
+  background-color: RGBA(255, 255, 255, 1);
+}
+
 #confirm-body {
   background-color: white;
   width: 75%;

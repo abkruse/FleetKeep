@@ -28,9 +28,9 @@
   <highchart id="status-line" class='col s6' config="ctrl.lineConfig"></highchart>
 </div> -->
 <div class='row damRep-table'>
-  <h5 class='col s4'>Vehicles with Current Damage Reports</h5>
+  <h5 class='col s4 offset-s1'>Vehicles with Current Damage Reports</h5>
   <div class='form-group'>
-    <label class='col s1 offset-s1' for='select'>View By:</label>
+    <label class='col s1' for='select'>View By:</label>
   </div>
   <select id='select' class="browser-default col s2" ng-model='ctrl.selection'>
     <option value="" disabled selected>Choose your option</option>
@@ -54,7 +54,7 @@
   </div>
 </div>
 <div class='row'>
-  <table class='col s10 offset-s1 highlight'>
+  <table class='col s10 offset-s1 highlight bordered sup-table1'>
     <thead>
       <th>
         Vehicle ID
@@ -73,7 +73,7 @@
       </th>
     </thead>
     <tbody>
-      <tr ng-repeat='report in ctrl.reports | orderBy: ctrl.selection || status:true | limitTo: ctrl.limit || 10'>
+      <tr ng-repeat='report in ctrl.reports | orderBy: ctrl.selection:false || status:true | limitTo: ctrl.limit || 10'>
         <td>
           {{report.truck_id}}
         </td>
@@ -110,7 +110,7 @@
   </select>
 </div>
 <div class='row'>
-  <table class='col s10 offset-s1'>
+  <table class='col s10 offset-s1 highlight bordered oos-table'>
     <thead>
       <th>
         Vehicle ID
