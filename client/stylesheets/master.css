@@ -18,6 +18,28 @@ nav {
   font-size: 125%;
 }
 
+.home-body {
+  background-color: RGBA(4, 15, 29, 1);
+  background-image:url('../images/truck.png');
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  margin-right: 1%;
+}
+
+.home-nav {
+  background-color: RGBA(255, 255, 255, 0);
+}
+
+.home-title {
+  color: RGBA(255, 255, 255, .8);
+}
+
+.flow-text {
+  color: RGBA(255, 255, 255, .8);
+  padding: 0%;
+}
+
 #confirm-body {
   background-color: white;
   width: 75%;

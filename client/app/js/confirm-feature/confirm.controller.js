@@ -11,6 +11,11 @@
       var ctrl = this;
       ctrl.reportID = $stateParams.id;
 
+      ctrl.logout = function() {
+        $window.localStorage.clear();
+        $state.go('home');
+      }
+
       ctrl.user = ConfirmFactory.getUser().then( function(data) {
 
         ctrl.getCompany(data.company_id);
@@ -58,6 +63,8 @@
 
         ConfirmFactory.confirm(signature, ctrl.reportID).then(function (data) {
           console.log(data)
+
+          // $state.go('driver');
         });
       }
 

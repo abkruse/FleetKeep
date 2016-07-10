@@ -59,4 +59,22 @@
         // $locationProvider.html5Mode(true);
         $httpProvider.interceptors.push('AuthInterceptor');
     }
+
+  //   function run($rootScope, $stateProvider, $window) {
+  //    $rootScope.$on('$routeChangeStart', function (event, next, current) {
+   //
+  //      if (next.restricted && !$window.localStorage.getItem("user") ) {
+  //        if(current && current.signup){
+  //          $state.go('home');
+  //        } else if (next.restricted && $window.localStorage.getItem('user') != 1) {
+  //          $location.path('/');
+  //        }
+  //          $location.path('/#/login');
+  //      }
+   //
+  //      if (next.preventWhenLoggedIn && $window.localStorage.getItem("token")) {
+  //        $location.path('/');
+  //      }
+  //    });
+  //  };
 })();

@@ -102,6 +102,7 @@
         ctrl.updateDamages(angular.copy(damage));
         var desc = document.getElementById('desc');
         desc.value = '';
+        ctrl.damageForm.$setPristine();
       }
 
       ctrl.updateDamages = function(damage) {

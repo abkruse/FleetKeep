@@ -1,7 +1,7 @@
 <nav>
   <div class='nav-wrapper'>
-    <a href='#/dash' class='brand-logo'>FleetKeep</a>
-    <ul class='right hide-on-med-and-down'>
+    <a href='#/driver' class='brand-logo'>FleetKeep</a>
+    <ul class='right'>
       <li>
         <a href='#'>Settings</a>
       </li>
@@ -33,11 +33,8 @@
   </div>
 </form>
 <div class='dvir row'>
-  <form class='col s9 offset-s1'>
-    <h4 class='offset-s4'>Driver Vehicle Inspection Report</h4>
-    <div class='container'>
-
-    </div>
+  <form class='col s9 offset-s2'>
+    <h4 class='col s10 offset-s1'>Driver Vehicle Inspection Report</h4>
       <div class='container col s3'>
         <label for='engine'>Engine Compartment</label>
         <p>
@@ -82,7 +79,7 @@
           <label for="springs">Springs & Shocks</label>
         </p>
       </div>
-      <div class='container col s3'>
+      <div class='container col s3 offset-s1'>
         <p>
           <input class='exterior' type="checkbox" id="mirrors" />
           <label for="mirrors">Mirrors</label>
@@ -125,7 +122,7 @@
           <label for="brake">Brake System</label>
         </p>
       </div>
-      <div class='container col s3'>
+      <div class='container col s3 offset-s1'>
         <p>
           <input class='cab' type="checkbox" id="diff" />
           <label for="diff">Differential</label>
@@ -170,7 +167,7 @@
       </div>
     </div>
     <div class='row'>
-      <button ng-click='report.dvir_bool=true' class="waves-effect waves-light btn-large col s2 offset-s3">Completed</button>
+      <button ng-click='report.dvir_bool=true' class="waves-effect waves-light btn-large col s2 offset-s4">Completed</button>
     </div>
   </form>
 </div>
@@ -215,7 +212,7 @@
   <p>
     Damage Report
   </p>
-  <form >
+  <form name='ctrl.damageForm'>
     <div class='row'>
       <label class='col s4 offset-s2'>Damage Description</label>
     </div>

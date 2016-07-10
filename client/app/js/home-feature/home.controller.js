@@ -5,9 +5,11 @@
     .module('fleetkeep')
     .controller('HomeCtrl', HomeCtrl);
 
-    HomeCtrl.$inject = [];
+    HomeCtrl.$inject = ['$scope'];
 
-    function HomeCtrl() {
+    function HomeCtrl($scope) {
+      var ctrl = this;
+
 
     }
 })();
