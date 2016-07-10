@@ -7,6 +7,9 @@ nav {
   box-shadow: none;
 }
 
+h4 {
+  font-family: 'Quicksand', sans-serif;
+}
 
 .brand-logo {
   font-family: 'Quicksand', sans-serif;
@@ -67,6 +70,40 @@ nav {
   padding-left: 1%;
   font-family: 'Didact Gothic', sans-serif;
   font-weight: lighter;
+}
+
+.login-nav {
+  background-color: RGBA(255, 255, 255, 0)
+}
+
+.login-pg {
+  background-color: RGBA(10, 18, 30, 1);
+  height: 800px;
+  padding-bottom: 2%;
+  background-image:url('../images/truck.png');
+}
+
+.login-header {
+  text-align: center;
+  background-color: RGBA(118, 159, 159, 1);
+  padding-right: 1%;
+}
+
+.reg-header {
+  text-align: center;
+  background-color: RGBA(159, 198, 204, .3);
+}
+
+.login-form {
+  padding-top: 2%;
+  background-color: RGBA(246, 246, 246, .9);
+  width: 50%;
+  padding-bottom: 1%;
+  border-radius: 1px;
+}
+
+.login-group {
+  margin-bottom: 1%;
 }
 
 #confirm-body {

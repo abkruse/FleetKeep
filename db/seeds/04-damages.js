@@ -1,6 +1,6 @@
 
 exports.seed = function(knex, Promise) {
-  return knex.raw('ALTER SEQUENCE damages_id_seq restart with 4')
+  return knex.raw('ALTER SEQUENCE damages_id_seq restart with 7')
     .then(function() {
       return knex('damages').del().then(function() {
         return Promise.join(
@@ -67,5 +67,4 @@ exports.seed = function(knex, Promise) {
         );
       })
     });
-
 };

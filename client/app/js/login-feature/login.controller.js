@@ -10,6 +10,10 @@
     function LoginCtrl($state, LoginFactory, $window) {
       var ctrl = this;
 
+      ctrl.show = function() {
+        ctrl.toggled = !ctrl.toggled;
+      }
+
       ctrl.login = function(user) {
         LoginFactory.login(user).then( function(data) {
           var user = data.data.user.id;
