@@ -11,21 +11,31 @@
     </ul>
   </div>
 </nav>
-<h2>Review Page</h2>
 <div class='col' id='confirm-body'>
   <div class='row'>
-    <p class='col s1 offset-s1 signed-label'>
+    <h4 class='col s6 offset-s3'>Superviser Review Form</h4>
+  </div>
+  <div class='row'>
+    <h5 class='col s6 offset-s4'>Current Status: {{ctrl.report.$$state.value.status}}</h5>
+  </div>
+  <div class='row'>
+    <p class='col s4 offset-s1'><strong>Date Damage Reported:</strong> {{ctrl.report.$$state.value.created_at | date : format: short}}</p>
+    <p class='col s3'><strong>Damage Reported By Driver:</strong> {{ctrl.report.$$state.value.driver_id}}</p>
+    <p class='col s3'><strong>Truck Damaged:</strong> {{ctrl.report.$$state.value.truck_id}}</p>
+  <div class='row'>
+    <p class='col s1 offset-s3 signed-label'>
       Signed:
     </p>
-    <!-- <img class='col s4' ng-src='https://s3.amazonaws.com/fleetkeep-reports/Reports/{{ctrl.report.$$state.value.report_id}}.jpg' alt='signature' /> -->
+    <img class='col s4' ng-src='https://s3.amazonaws.com/fleetkeep-reports/Reports/{{ctrl.report.$$state.value.report_id}}.jpg' alt='signature' />
   </div>
   <div class='row'>
     <form class='review-form'>
       <div class='form-group'>
-        <label class='col s1 offset-s3'>Set Status:</label>
+        <label class='col s1 offset-s1'>Set Status:</label>
       </div>
       <select class="browser-default col s2" ng-model='ctrl.report.$$state.value.status'>
-        <option value="" disabled selected>Choose your option</option>
+        <option value='' disabled selected></option>
+        <option vlaue='Pending'>Pending</option>
         <option value='Reviewed'>Reviewed</option>
         <option value='Fixed'>Fixed</option>
         <option value='Out of Service'>Out of Service for Repair</option>
@@ -34,7 +44,7 @@
         <label class='col offset-s1' for='status-desc'>Notes</label>
       </div>
       <div>
-        <input type='text' class='col s4' ng-model='ctrl.report.$$state.value.desc'/>
+        <input type='text' class='col s6' ng-model='ctrl.report.$$state.value.desc'/>
       </div>
       <button ng-click='ctrl.updateStatus(ctrl.report.$$state.value)' class="waves-effect waves-light btn-large col s3 offset-s5">Submit</button>
     </form>
