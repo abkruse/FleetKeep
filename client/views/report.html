@@ -206,24 +206,31 @@
 </div>
 <div class='row'>
   <h4 class='col s6 offset-s1'>Input Any Unmarked Damage</h4>
-  <canvas class='col offset-s1' id='canvas' width='800' height="600" ng-click='ctrl.markDamage($event, report.truck_id)'></canvas>
+  <canvas ng-hide='ctrl.marking' class='col offset-s1' id='canvas' width='800' height="600" ng-click='ctrl.markDamage($event, report.truck_id)'></canvas>
 </div>
-<div class='container' id='damage-report'>
-  <p>
-    Damage Report
-  </p>
-  <form name='ctrl.damageForm'>
-    <div class='row'>
-      <label class='col s4 offset-s2'>Damage Description</label>
+<div id="repModal" class="modal">
+  <div class="modal-content">
+    <span class="close">x</span>
+    <p>Damage Report</p>
+    <div class='modal-body'>
+      <div>
+        <form name='ctrl.damageForm'>
+          <div class='row'>
+            <label class='col s4 offset-s2'>Damage Description</label>
+          </div>
+          <div class='row'>
+            <input class='col s8 offset-s2' id='desc' type='text' ng-model='damage.desc' placeholder='e.g. Scratch found on driver door. About 4" in length and down to metal.' required=true/>
+          </div>
+        </form>
+      </div>
+      <div class='row'>
+        <button ng-click='ctrl.damageReport(damage)' class="waves-effect waves-light btn-large col s2 offset-s3">Submit</button>
+        <button ng-click='ctrl.no()' class="waves-effect waves-light btn-large col s2 offset-s1">Cancel</button>
+      </div>
     </div>
-    <div class='row'>
-      <input class='col s8 offset-s2' id='desc' type='text' ng-model='damage.desc' placeholder='e.g. Scratch found on driver door. About 4" in length and down to metal.' required=true/>
-    </div>
-    <div class='row'>
-      <button ng-click='ctrl.damageReport(damage)' class="waves-effect waves-light btn-large col s2 offset-s3">Submit</button>
-      <button ng-click='' class="waves-effect waves-light btn-large col s2 offset-s1">Cancel</button>
-    </div>
-  </form>
+  </div>
 </div>
-<button ng-click='ctrl.submitReport(report)' class="waves-effect waves-light btn-large col s2 offset-s3">Submit</button>
-<a ng-href='#/dash' class="waves-effect waves-light btn-large col s2 offset-s1">Cancel</a>
+<div class='row'>
+  <button ng-click='ctrl.submitReport(report)' class="waves-effect waves-light btn-large col s2 offset-s3">Submit</button>
+  <a ng-href='#/dash' class="waves-effect waves-light btn-large col s2 offset-s1">Cancel</a>
+</div>

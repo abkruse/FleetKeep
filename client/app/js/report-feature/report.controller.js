@@ -9,6 +9,7 @@
 
     function ReportCtrl(ReportFactory, $state) {
       var ctrl = this;
+      var modal = document.getElementById('repModal');
 
       ctrl.user = ReportFactory.getUser();
       ctrl.damages = [];
@@ -75,14 +76,24 @@
       }
 
       ctrl.markDamage = function(e) {
+        modal.style.display = "block";
+
         ctrl.x_coor = e.offsetX;
         ctrl.y_coor = e.offsetY;
+      }
+
+      ctrl.no = function() {
+        modal.style.display = "none";
+      }
+
+      ctrl.damageReport = function(damage) {
+        modal.style.display = "none";
 
         var cnvs = document.getElementById('canvas');
         var ctx = cnvs.getContext('2d');
 
-        var centerX = e.offsetX;
-        var centerY = e.offsetY;
+        var centerX = ctrl.x_coor;
+        var centerY = ctrl.y_coor;
         var radius = 20;
 
         ctx.beginPath();
@@ -90,9 +101,7 @@
         ctx.lineWidth = 5;
         ctx.strokeStyle = '#FFA500';
         ctx.stroke();
-      }
 
-      ctrl.damageReport = function(damage) {
         damage.truck_id = ctrl.truckID;
         damage.driver_id = parseInt(ctrl.user);
         damage.x_coor = ctrl.x_coor;
@@ -110,6 +119,7 @@
       }
 
       ctrl.submitReport = function(report) {
+
         if(ctrl.damages.length === 0) {
           report.damage_bool = false;
         } else {
