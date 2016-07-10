@@ -10,7 +10,9 @@ FleetKeep is focused on allowing a driver or other employee to login and easily 
 - AngularJS
 - Node.js
 - Express.js
-- HelloSign API
+- SignaturePad
 - Highcharts
 - Knex.js
 - PostgreSQL
+
+Deployed Site: [FleetKeep](https://fleetkeep.herokuapp.com)
