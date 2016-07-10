@@ -19,6 +19,8 @@
       }
 
       ctrl.report = ReviewFactory.getDamage(damageId);
+      console.log(ctrl.report);
+
 
       ctrl.updateStatus = function(review) {
         ReviewFactory.updateStatus(ctrl.user, damageId, review).then( function(data) {

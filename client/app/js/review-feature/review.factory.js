@@ -18,8 +18,8 @@
         },
 
         getDamage: function(id) {
-          return $http.get(url + 'report/damages/' + id).then( function(data) {
-            return data.data;
+          return $http.get(url + 'report/damages/' + id + '/review').then( function(data) {
+            return data;
           })
         },
 

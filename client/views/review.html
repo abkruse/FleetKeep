@@ -12,25 +12,31 @@
   </div>
 </nav>
 <h2>Review Page</h2>
-<div class='row'>
-  <img ng-src='https://s3.amazonaws.com/fleetkeep-reports/Reports/{{ctrl.report.$$state.value.report_id}}.jpg' alt='signature' />
-  <form class='review-form'>
-    <div class='form-group'>
-      <label class='col s1 offset-s3'>Set Status:</label>
-    </div>
-    <select class="browser-default col s2" ng-model='ctrl.report.$$state.value.status'>
-      <option value="" disabled selected>Choose your option</option>
-      <option value='Reviewed'>Reviewed</option>
-      <option value='Fixed'>Fixed</option>
-      <option value='Out of Service'>Out of Service for Repair</option>
-    </select>
-    <div class='form-group'>
-      <label class='col offset-s1' for='status-desc'>Notes</label>
-    </div>
-    <div>
-      <input type='text' class='col s4' ng-model='ctrl.report.$$state.value.desc'/>
-    </div>
-    <button ng-click='ctrl.updateStatus(ctrl.report.$$state.value)' class="waves-effect waves-light btn-large col s2 offset-s3">Submit</button>
-  </form>
-  <button ng-click='ctrl.getSig()' class="waves-effect waves-light btn-large col s2 offset-s3">See Signature</button>
+<div class='col' id='confirm-body'>
+  <div class='row'>
+    <p class='col s1 offset-s1 signed-label'>
+      Signed:
+    </p>
+    <!-- <img class='col s4' ng-src='https://s3.amazonaws.com/fleetkeep-reports/Reports/{{ctrl.report.$$state.value.report_id}}.jpg' alt='signature' /> -->
+  </div>
+  <div class='row'>
+    <form class='review-form'>
+      <div class='form-group'>
+        <label class='col s1 offset-s3'>Set Status:</label>
+      </div>
+      <select class="browser-default col s2" ng-model='ctrl.report.$$state.value.status'>
+        <option value="" disabled selected>Choose your option</option>
+        <option value='Reviewed'>Reviewed</option>
+        <option value='Fixed'>Fixed</option>
+        <option value='Out of Service'>Out of Service for Repair</option>
+      </select>
+      <div class='form-group'>
+        <label class='col offset-s1' for='status-desc'>Notes</label>
+      </div>
+      <div>
+        <input type='text' class='col s4' ng-model='ctrl.report.$$state.value.desc'/>
+      </div>
+      <button ng-click='ctrl.updateStatus(ctrl.report.$$state.value)' class="waves-effect waves-light btn-large col s3 offset-s5">Submit</button>
+    </form>
+  </div>
 </div>
