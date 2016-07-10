@@ -3,11 +3,13 @@ body {
 }
 
 nav {
-  background-color: indigo;
+  background-color: RGBA(150, 200, 205, 1);
+  box-shadow: none;
 }
 
+
 .brand-logo {
-  font-family: 'Exo 2', sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .confirm-btns {
@@ -32,12 +34,39 @@ nav {
 }
 
 .home-title {
+  margin-left: 1%;
   color: RGBA(255, 255, 255, .8);
+  padding-left: 2%;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+}
+
+.info {
+  margin-top: 15%;
+}
+
+/*get started button no home*/
+.btn-start {
+  margin-top: 15%;
+}
+
+.start-btn {
+  text-decoration: none;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2.2em;
+  color: RGBA(255, 255, 255, .8);
+  margin-top: 1%;
+  border: solid 1px RGBA(255, 255, 255, .8);
+  border-radius: 3px;
+  background-color: RGBA(4, 15, 29, .9);
+  padding: 1%;
 }
 
 .flow-text {
   color: RGBA(255, 255, 255, .8);
-  padding: 0%;
+  padding-left: 1%;
+  font-family: 'Didact Gothic', sans-serif;
+  font-weight: lighter;
 }
 
 #confirm-body {
