@@ -62,24 +62,16 @@
         console.log(signature);
 
         ConfirmFactory.confirm(signature, ctrl.reportID).then(function (data) {
-          console.log(data)
-
-          // $state.go('driver');
+          $state.go('driver');
         });
       }
 
       ctrl.print = function() {
         var doc = new jsPDF();
-        // var specialElementHandlers = {
-        //   '#editor':function (element, renderer) {
-        //     return true;
-        //   }
-        // }
         var img = signPad.toDataURL('image/jpeg');
 
         doc.fromHTML($('#confirm-body').html(), 35, 35, {
           'width': 170,
-          // 'elementHandlers': specialElementHandlers
         });
         doc.addImage(img, 'JPEG', 90, 225, 60, 30);
         doc.autoPrint();
