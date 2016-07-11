@@ -18,7 +18,6 @@
         },
 
         getDamage: function(id) {
-          console.log(id);
           return $http.get(url + 'damages/' + id + '/review').then( function(data) {
             return data.data;
           })

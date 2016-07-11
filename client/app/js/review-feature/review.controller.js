@@ -18,8 +18,9 @@
         $state.go('home');
       }
 
-      ctrl.report = ReviewFactory.getDamage(damageId);
-      console.log(ctrl.report);
+      ReviewFactory.getDamage(damageId).then( function(data) {
+        ctrl.report = data[0];
+      });
 
       ctrl.updateStatus = function(review) {
         ReviewFactory.updateStatus(ctrl.user, damageId, review).then( function(data) {
