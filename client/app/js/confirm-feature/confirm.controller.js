@@ -17,7 +17,6 @@
       }
 
       ctrl.user = ConfirmFactory.getUser().then( function(data) {
-
         ctrl.getCompany(data.company_id);
         return data;
       });

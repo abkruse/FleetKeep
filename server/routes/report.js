@@ -71,14 +71,8 @@ router.get('/damages/truck/:call', function(req, res, next) {
 });
 
 router.get('/damages/:id/review', function(req, res, next) {
-  knex.from('damages').innerJoin('vehicles', 'damages.truck_id', 'vehicles.call').then( function(data) {
-    var relevant = [];
-    data.forEach(function(data) {
-      if(data.id == req.params.id) {
-        relevant.push(data);
-      }
-    })
-    res.send(relevant);
+  knex.from('damages').innerJoin('vehicles', 'damages.truck_id', 'vehicles.call').where({ 'damages.id':req.params.id }).then( function(data) {
+    res.send(data);
   })
 })
 

@@ -18,16 +18,9 @@
         },
 
         getDamage: function(id) {
-          return $http.get(url + 'report/damages/' + id).then( function(data) {
+          return $http.get(url + 'report/damages/' + id + '/review').then( function(data) {
             return data.data;
           })
-        },
-
-        getTruck: function(id) {
-          console.log(id);
-          return $http.get(url + 'report/vehicle' + id).then( function(data) {
-            return data.data;
-          });
         },
 
         updateStatus: function(user, id, review) {
