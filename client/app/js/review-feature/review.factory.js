@@ -34,7 +34,7 @@
           review.sup_Id = parseInt(user);
           review.review_time = now;
 
-          return $http.put(url + 'report/damages/' + id + '/update', review).then( function(data) {
+          return $http.put(url + 'damages/' + id + '/update', review).then( function(data) {
             return data;
           });
         }

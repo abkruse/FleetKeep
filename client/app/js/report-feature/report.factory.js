@@ -30,7 +30,7 @@
         },
 
         getTruckDamage: function(call) {
-          return $http.get(url + 'report/damages/truck/' + call).then( function(data) {
+          return $http.get(url + 'damages/truck/' + call).then( function(data) {
             return data.data;
           })
         },
@@ -42,7 +42,7 @@
             for(var i = 0; i < damages.length; i++) {
               damages[i].report_id = reportData.data[0];
 
-              $http.post(url + 'report/damages', damages[i]).then( function(damData) {
+              $http.post(url + 'damages', damages[i]).then( function(damData) {
                 return damData;
               })
             }
