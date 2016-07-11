@@ -49,7 +49,7 @@
         .state('confirm', {
           url:'/confirm/:id',
           templateUrl: 'views/confirm.html',
-          controller: 'DashCtrl as ctrl'
+          controller: 'ConfirmCtrl as ctrl'
         })
         .state('driver', {
           url:'/driver',

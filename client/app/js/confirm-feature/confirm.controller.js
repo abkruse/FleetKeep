@@ -76,17 +76,17 @@
             window.open(doc.output('bloburl'), '_blank');
           }
         })
-        //
-        // var doc = new jsPDF();
-        // var img = signPad.toDataURL('image/jpeg');
-        //
-        // doc.fromHTML($('#confirm-body').html(), 35, 35, {
-        //   'width': 170,
-        // });
-        // doc.addImage(img, 'JPEG', 90, 225, 60, 30);
-        // doc.autoPrint();
-        // window.open(doc.output('bloburl'), '_blank');
-
+      //   //
+      //   // var doc = new jsPDF();
+      //   // var img = signPad.toDataURL('image/jpeg');
+      //   //
+      //   // doc.fromHTML($('#confirm-body').html(), 35, 35, {
+      //   //   'width': 170,
+      //   // });
+      //   // doc.addImage(img, 'JPEG', 90, 225, 60, 30);
+      //   // doc.autoPrint();
+      //   // window.open(doc.output('bloburl'), '_blank');
+      //
       }
     }
 })();
