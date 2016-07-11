@@ -49,11 +49,12 @@
         .state('confirm', {
           url:'/confirm/:id',
           templateUrl: 'views/confirm.html',
-          controller: 'ConfirmCtrl as ctrl'
+          controller: 'DashCtrl as ctrl'
         })
         .state('driver', {
           url:'/driver',
-          templateUrl:'views/driver.html'
+          templateUrl:'views/driver.html',
+          controller: 'DashCtrl as ctrl'
         });
 
         $httpProvider.interceptors.push('AuthInterceptor');

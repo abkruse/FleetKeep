@@ -7,8 +7,14 @@ nav {
   box-shadow: none;
 }
 
-h4 {
+h3, h4, h5{
   font-family: 'Quicksand', sans-serif;
+}
+
+.logo {
+  margin-top: 1%;
+  margin-left: 2%;
+  height: 55px;
 }
 
 .lg-btn {
@@ -52,7 +58,6 @@ h4 {
   margin-top: 15%;
 }
 
-/*get started button no home*/
 .btn-start {
   margin-top: 15%;
 }
@@ -134,6 +139,19 @@ h4 {
 .review-form {
   padding-top: 2%;
   border-top: 1px solid black;
+}
+
+.oos-title {
+  color: RGBA(100, 34, 20, .8);
+}
+
+#oos-driver {
+  margin-top: 2%;
+}
+
+.pretrip {
+  width: 50%;
+  height: 50%;
 }
 
 .modal {

@@ -11,7 +11,69 @@
     </ul>
   </div>
 </nav>
-<h4>Driver Dashboard</h4>
 <div class='row'>
-  <a href='/#/report'><button class="waves-effect waves-light btn-large col s2 offset-s5">New Report</button></a>
+  <p class='col s8 offset-s2'>Prior to each trip, please walk around your vehicle to ensure that all components of your vehicle are in proper, working order. While completing this walk around, mark each element as reviewed and include any damage reports previously unsubmitted. <strong>If you witness any issues during the inspection which would compromise the safety of you and the vehicle, please report it to your inspector in-person immediately.</strong></p>
+
+  <p class='col s6 offset-s3'>For more information on how to complete a pre-trip inspection, please see below</p>
+</div>
+<div class='row'>
+  <a href='/#/report'><button id='new-report' class="waves-effect waves-light btn-large col s2 offset-s5">Pre-Trip Inspection</button></a>
+</div>
+<div class='row'>
+  <div class='row' id='oos-driver'>
+    <h5 class='col s6 offset-s1 oos-title'>Out of Service Vehicles</h5>
+    <div class='form-group'>
+      <p class='col s1 offset-s1'>View By:</p>
+    </div>
+    <select class="browser-default col s2" ng-model='ctrl.selectionOut'>
+      <option value="" disabled selected>Choose your option</option>
+      <option value='driver_id'>Driver ID</option>
+      <option value='truck_id'>Truck ID</option>
+      <option value='status'>Status</option>
+      <option value='created_at'>Date of Report</option>
+    </select>
+  </div>
+  <div class='row'>
+    <table class='col s10 offset-s1 highlight bordered oos-table'>
+      <thead>
+        <th>
+          Vehicle ID
+        </th>
+        <th>
+          Driver
+        </th>
+        <th>
+          Damage
+        </th>
+        <th>
+          Date
+        </th>
+        <th>
+          Status
+        </th>
+      </thead>
+      <tbody>
+        <tr ng-repeat='out in ctrl.out | orderBy: ctrl.selectionOut || status:true'>
+          <td>
+            {{out.truck_id}}
+          </td>
+          <td>
+            {{out.driver_id}}
+          </td>
+          <td>
+            {{out.desc}}
+          </td>
+          <td>
+            {{out.created_at | date : format : short }}
+          </td>
+          <td>
+            {{out.status}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class='row'>
+  <img class='pretrip' src='../images/pretrip.png' />
 </div>
