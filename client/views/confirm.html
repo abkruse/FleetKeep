@@ -1,6 +1,6 @@
 <nav>
   <div class='nav-wrapper'>
-    <a href='#/dash' class='brand-logo'>FleetKeep</a>
+    <a href='#/driver' class='brand-logo'><img class='logo' src='../images/Fleetkeep-logo.png' /></a>
     <ul class='right'>
       <li>
         <a href='#'>Settings</a>
@@ -23,11 +23,11 @@
       <div class='row'>
         <div class='confirm-group col s4'>
           <label for='date'>Date of Report: </label>
-          {{ctrl.reported.$$state.value.created_at | date : format: short}}
+          {{ctrl.reported.created_at | date : format: short}}
         </div>
         <div class='confirm-group col s4'>
           <label for='name'>Driver Name: </label>
-           {{ctrl.user.$$state.value.firstName}} {{ctrl.user.$$state.value.lastName}}
+           {{ctrl.user.firstName}} {{ctrl.user.lastName}}
         </div>
         <div class='confirm-group col s4'>
           <label for='company'>Company: </label>
@@ -37,15 +37,15 @@
       <div class='row'>
         <div class='confirm-group col s4'>
           <label for='truck'>Truck Number: </label>
-          {{ctrl.reported.$$state.value.truck_id}}
+          {{ctrl.reported.truck_id}}
         </div>
         <div class='confirm-group col s4'>
           <label for='odometer'>Odometer Reading: </label>
-          {{ctrl.reported.$$state.value.odo_num}}
+          {{ctrl.reported.odo_num}}
         </div>
         <div class='confirm-group col s4'>
           <label for='dvir'>Completed DVIR? </label>
-          {{ctrl.reported.$$state.value.dvir_bool}}
+          {{ctrl.reported.dvir_bool}}
         </div>
       </div>
     </div>

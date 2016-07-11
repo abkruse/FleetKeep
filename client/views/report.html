@@ -14,7 +14,7 @@
 <div class='row'>
   <h3 class='col s6 offset-s4'>New Report</h3>
 </div>
-<form class='container'>
+<form class='container top'>
   <div class='row form-group'>
     <label class='col s4 offset-s3'>Truck Number</label>
   </div>
@@ -155,7 +155,7 @@
         </p>
         <label for='other'>Other</label>
         <p>
-          <input class='other' type="checkbox" id="fifth" />
+          <input class='other' type="checkbox" id="fifth"/>
           <label for="fifth">Fifth Wheel</label>
         </p>
         <p>
@@ -174,7 +174,7 @@
   </form>
 </div>
 <div class='row'>
-  <h4 class='col s6 offset-s1'>Previously Reported Damage</h4>
+  <h4 class='col s6 offset-s3'>Previously Reported Damage</h4>
   <table class='damage-table col s10 offset-s1'>
     <thead>
       <th>
@@ -207,10 +207,10 @@
   </table>
 </div>
 <div class='row'>
-  <h4 class='col s6 offset-s1'>Input Any Unmarked Damage</h4>
-  <canvas ng-hide='ctrl.marking' class='col offset-s1' id='canvas' width='800' height="600" ng-click='ctrl.markDamage($event, report.truck_id)'></canvas>
+  <h4 class='col s6 offset-s3'>Input Any Unmarked Damage</h4>
+  <canvas class='col s8 offset-s2' id='canvas' width='800' height="600" ng-click='ctrl.markDamage($event, report.truck_id)'></canvas>
 </div>
-<div id="repModal" class="modal">
+<div id="repModal" class="modal row">
   <div class="modal-content">
     <p>Damage Report</p>
     <div class='modal-body'>

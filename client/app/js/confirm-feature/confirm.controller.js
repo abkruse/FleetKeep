@@ -16,12 +16,13 @@
         $state.go('home');
       }
 
-      ctrl.user = ConfirmFactory.getUser().then( function(data) {
+      ConfirmFactory.getUser().then( function(data) {
         ctrl.getCompany(data.company_id);
-        return data;
+        ctrl.user = data;
       });
 
       ctrl.getCompany = function(id) {
+        console.log(id);
         ConfirmFactory.getCompany(id).then( function(data) {
           ctrl.company = data;
         }).catch( function(err) {
@@ -29,8 +30,8 @@
         });
       }
 
-      ctrl.reported = ConfirmFactory.getReport(ctrl.reportID).then( function(data) {
-        return data;
+      ConfirmFactory.getReport(ctrl.reportID).then( function(data) {
+        ctrl.reported = data;
       });
 
       var cnvs = document.getElementById('sign-here');

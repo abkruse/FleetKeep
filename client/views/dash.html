@@ -1,5 +1,6 @@
 <nav>
   <div class='nav-wrapper'>
+    <a href='#/' class='brand-logo'><img class='logo' src='../images/Fleetkeep-logo.png' /></a>
     <ul class='right'>
       <li class='nav-link'>
         <a href='#'>Out of Service Trucks</a>
@@ -14,14 +15,14 @@
   </div>
 </nav>
 <div class='row'>
-  <a href='/#/report'><button class="waves-effect waves-light btn-large col s2 offset-s5" id='new-report'>New Report</button></a>
+  <a href='/#/report'><button class="waves-effect waves-light btn-large col s2 offset-s5" id='new-report'>New Pre-Trip Inspection</button></a>
 </div>
 <div class='row charts'>
   <highchart id="status-pie" class='col s5 offset-s1' config="ctrl.pieConfig"></highchart>
   <highchart id="damage-bar" class='col s5' config="ctrl.barConfig"></highchart>
 </div>
 <div class='row' name='oos'>
-  <h5 class='col s6 offset-s1'>Vehicles Out of Service</h5>
+  <h5 class='col s6 offset-s1'>Out of Service Vehicles</h5>
   <div class='form-group'>
     <p class='col s1 offset-s1'>View By:</p>
   </div>

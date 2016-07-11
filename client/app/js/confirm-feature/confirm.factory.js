@@ -15,7 +15,6 @@
         getUser: function() {
           var user = $window.localStorage.getItem('user');
           var id = parseInt(user);
-
           return $http.get(url + 'users/' + id).then( function(data) {
             return data.data[0];
           })
