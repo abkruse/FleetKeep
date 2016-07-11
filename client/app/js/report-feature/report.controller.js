@@ -37,11 +37,9 @@
 
           imgObj.onload = function() {
             ctx.drawImage(imgObj, 0, 0, imgObj.width, imgObj.height, 0, 0, cnvs.width, cnvs.height);
-
+            ctrl.getDamage(truck_id);
           }
           imgObj.src = img;
-        }).then( function() {
-          ctrl.getDamage(truck_id);
         }).catch( function(err) {
           console.log(err);
         });
