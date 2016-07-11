@@ -56,7 +56,6 @@
           templateUrl:'views/driver.html'
         });
 
-        // $locationProvider.html5Mode(true);
         $httpProvider.interceptors.push('AuthInterceptor');
     }
 
