@@ -22,6 +22,15 @@
     <p class='col s4 offset-s1'><strong>Date Damage Reported:</strong> {{ctrl.report.created_at | date : format: short}}</p>
     <p class='col s3'><strong>Damage Reported By Driver:</strong> {{ctrl.report.driver_id}}</p>
     <p class='col s3'><strong>Truck Damaged:</strong> {{ctrl.report.truck_id}}</p>
+  </div>
+  <div class='row'>
+    <p class='col s8 offset-s3'>
+      <strong>Damage Description:</strong>{{ctrl.report.desc}}
+    </p>
+  </div>
+  <div class='row'>
+    <canvas class='col offset-s1' id='rev-canvas' width='800' height='600'></canvas>
+  </div>
   <div class='row'>
     <p class='col s1 offset-s3 signed-label'>
       Signed:
