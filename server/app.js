@@ -4,6 +4,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+var knex = require('./db/knex');
 
 require('dotenv').load();
 
@@ -11,6 +12,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var dash = require('./routes/dash');
 var report = require('./routes/report');
+var damages = require('./routes/damages');
 
 var app = express();
 
@@ -28,6 +30,14 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/dash', dash);
 app.use('/report', report);
+
+app.get('/damages/:id/review', function(req, res, next) {
+  knex.from('damages').innerJoin('vehicles', 'damages.truck_id', 'vehicles.call').where({ 'damages.id':req.params.id }).then( function(data) {
+    res.send(data);
+  })
+})
+
+app.use('/damages', damages);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

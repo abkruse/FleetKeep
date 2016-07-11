@@ -27,19 +27,6 @@ router.get('/:id', function(req, res, next) {
   });
 });
 
-// router.get('/:id', function(req, res, next) {
-//   knex.from('reports').innerJoin('damages', 'reports.id', 'damages.report_id').then( (data)=> {
-//     let data = data;
-//     let relevant = [];
-//     data.forEach(function(data) {
-//       if(data.id == req.params.id) {
-//         relevant.push(data);
-//       }
-//     })
-//     res.send(data, relevant);
-//   });
-// });
-
 router.get('/:id/driver', function(req, res, next) {
   Reports.getByDriver(req.params.id).then( function(data) {
     res.send(data);
@@ -58,6 +45,7 @@ router.get('/vehicles/:call', function(req, res, next) {
   })
 })
 
+
 router.get('/damages/truck/:call', function(req, res, next) {
   knex.from('damages').innerJoin('users', 'damages.driver_id', 'users.id').then( function(data) {
     var relevant = [];
@@ -69,12 +57,6 @@ router.get('/damages/truck/:call', function(req, res, next) {
     res.send(relevant);
   });
 });
-
-router.get('/damages/:id/review', function(req, res, next) {
-  knex.from('damages').innerJoin('vehicles', 'damages.truck_id', 'vehicles.call').where({ 'damages.id':req.params.id }).then( function(data) {
-    res.send(data);
-  })
-})
 
 router.get('/damages/:id', function(req, res, next) {
   Damages.getOne(req.params.id).then( function(data) {
