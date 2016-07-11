@@ -136,7 +136,7 @@
         }],
 
         title: {
-            text: 'Fleet Status'
+            text: 'Damage Report Statuses'
         },
 
         loading: false

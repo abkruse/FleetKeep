@@ -58,7 +58,6 @@
 
       ctrl.confirm = function() {
         var signature = signPad.toDataURL('image/jpeg');
-        console.log(signature);
 
         ConfirmFactory.confirm(signature, ctrl.reportID).then(function (data) {
           $state.go('driver');
@@ -66,15 +65,26 @@
       }
 
       ctrl.print = function() {
-        var doc = new jsPDF();
-        var img = signPad.toDataURL('image/jpeg');
-
-        doc.fromHTML($('#confirm-body').html(), 35, 35, {
-          'width': 170,
-        });
-        doc.addImage(img, 'JPEG', 90, 225, 60, 30);
-        doc.autoPrint();
-        window.open(doc.output('bloburl'), '_blank');
+        var toPrint = document.getElementById('confirm-body');
+        html2canvas(toPrint, {
+          onrendered: function(canvas) {
+            var img = canvas.toDataURL("image/png");
+            var doc = new jsPDF();
+            doc.addImage(img, 'JPEG', 20, 20);
+            doc.autoPrint();
+            window.open(doc.output('bloburl'), '_blank');
+          }
+        })
+        //
+        // var doc = new jsPDF();
+        // var img = signPad.toDataURL('image/jpeg');
+        //
+        // doc.fromHTML($('#confirm-body').html(), 35, 35, {
+        //   'width': 170,
+        // });
+        // doc.addImage(img, 'JPEG', 90, 225, 60, 30);
+        // doc.autoPrint();
+        // window.open(doc.output('bloburl'), '_blank');
 
       }
     }
