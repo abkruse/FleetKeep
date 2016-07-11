@@ -23,6 +23,12 @@
           })
         },
 
+        getDriver: function(id) {
+          return $http.get(url + 'users/' + id).then(function(data) {
+            return data.data[0];
+          })
+        },
+
         updateStatus: function(user, id, review) {
           let now = new Date();
           review.sup_Id = parseInt(user);

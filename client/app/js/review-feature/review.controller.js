@@ -22,6 +22,7 @@
         ctrl.report = data[0];
 
         ctrl.drawTruck(ctrl.report.body);
+        ctrl.getDriver(ctrl.report.driver_id);
       });
 
       ctrl.drawTruck = function(body) {
@@ -49,6 +50,12 @@
         ctx.lineWidth = 5;
         ctx.strokeStyle = '#FFA500';
         ctx.stroke();
+      }
+
+      ctrl.getDriver = function(id) {
+        ReviewFactory.getDriver(id).then(function(data) {
+          ctrl.driver = data.firstName + ' ' + data.lastName;
+        })
       }
 
       ctrl.updateStatus = function(review) {
