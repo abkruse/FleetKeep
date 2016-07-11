@@ -11,6 +11,10 @@ router.get('/', function(req, res, next) {
   });
 });
 
-
+router.get('/:id/review', function(req, res, next) {
+  knex.from('damages').innerJoin('vehicles', 'damages.truck_id', 'vehicles.call').where({ 'damages.id':req.params.id }).then( function(data) {
+    res.send(data);
+  })
+})
 
 module.exports = router;

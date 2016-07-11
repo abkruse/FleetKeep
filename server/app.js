@@ -30,13 +30,6 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/dash', dash);
 app.use('/report', report);
-
-app.get('/damages/:id/review', function(req, res, next) {
-  knex.from('damages').innerJoin('vehicles', 'damages.truck_id', 'vehicles.call').where({ 'damages.id':req.params.id }).then( function(data) {
-    res.send(data);
-  })
-})
-
 app.use('/damages', damages);
 
 // catch 404 and forward to error handler
