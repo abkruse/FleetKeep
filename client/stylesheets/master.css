@@ -26,6 +26,7 @@ h3, h4, h5{
 }
 
 .home-body {
+  background-image: ('../images/truck.png');
   background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
@@ -305,8 +306,14 @@ h3, h4, h5{
     to {top: 0; opacity: 1}
 }
 
+/*@media only screen and (min-device-width: 768px){
+  .home-body {
+    background-image: url('../images/truck-copy.png');
+  }
+}*/
+
 @media screen and (max-width: 1024px) {
-    #main-img{
+    .home-body{
     	background-image: url('../images/truck-copy.png');
     }
 }
@@ -316,7 +323,7 @@ h3, h4, h5{
     	background-image: url('../images/truck.png');
     }
 }
-@media (min-width: 1024px) {
+/*@media (min-width: 992px) {
       .home-body{
           background-image: url('../images/truck-copy.png');
       }
@@ -325,4 +332,4 @@ h3, h4, h5{
      .home-body{
          background-image: url('../images/truck.png');
      }
-}
+}*/
