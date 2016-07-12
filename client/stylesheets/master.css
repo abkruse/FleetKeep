@@ -323,6 +323,12 @@ h3, h4, h5{
     	background-image: url('../images/truck.png');
     }
 }
+
+@media screen and (min-width: 1501px) {
+  .home-body {
+    background-image: url('../images/truck-big.png');
+  }
+}
 /*@media (min-width: 992px) {
       .home-body{
           background-image: url('../images/truck-copy.png');
