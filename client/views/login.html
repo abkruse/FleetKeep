@@ -12,11 +12,11 @@
     </div>
     <div class='form-body'>
       <div class='row login-group'>
-        <input ng-model='user.email' required=true class='col s10 offset-s1 login-email' type='email' />
+        <input id='user-email' ng-model='user.email' required=true class='col s10 offset-s1 login-email login-input' type='email' />
         <label for='login-email' class='col s10 offset-s1 login-email'>Email</label>
       </div>
       <div class='row login-group'>
-        <input ng-model='user.password' class='col s10 offset-s1 login-password' type='password' required=true/>
+        <input id="user-pass" ng-model='user.password' class='col s10 offset-s1 login-password login-input' type='password' required=true/>
         <label for='login-password' class='col s10 offset-s1  login-password'>Password</label>
       </div>
       <div class='row login-group'>
@@ -34,12 +34,12 @@
     </div>
     <div class='form-body'>
       <div class='row login-group'>
-        <input id='first-name' ng-model='user.firstName' required=true class='col s10 offset-s1 ' type='text' />
-        <label for='first-name' class='col s10 offset-s1 '>First Name</label>
+        <input id='first-name' ng-model='user.firstName' required=true class='col s10 offset-s1 login-input' type='text' />
+        <label for='first-name' class='col s10 offset-s1'>First Name</label>
       </div>
       <div class='row login-group'>
-        <input id='last-name' ng-model='user.lastName' required=true class='col s10 offset-s1 ' type='text' />
-        <label for='last-name' class='col s10 offset-s1 '>Last Name</label>
+        <input id='last-name' ng-model='user.lastName' required=true class='col s10 offset-s1 login-input' type='text' />
+        <label for='last-name' class='col s10 offset-s1'>Last Name</label>
       </div>
       <div class='row login-group'>
         <select id='title' class="browser-default col s10 offset-s1" ng-model='user.title' required=true>
@@ -51,15 +51,15 @@
         <label for='title' class='col col s10 offset-s1 '>Job Title</label>
       </div>
       <div class='row login-group'>
-        <input id='email' ng-model='user.email' ng-minlength=4 required=true class='col s10 offset-s1 ' type='text' />
+        <input id='email' ng-model='user.email' ng-minlength=4 required=true class='col s10 offset-s1 login-input' type='text' />
         <label for='email' class='col s10 offset-s1 '>Email</label>
       </div>
       <div class='row login-group'>
-        <input id='company' ng-model='user.company' ng-minlenght=4 required=true class='col s10 offset-s1 ' type='text' />
-        <label class='col s10 offset-s1 '>Company Name</label>
+        <input id='company' ng-model='user.company' ng-minlenght=4 required=true class='col s10 offset-s1 login-input' type='text' />
+        <label for='company' class='col s10 offset-s1 '>Company Name</label>
       </div>
       <div class='row login-group'>
-        <input id='password' ng-model='user.password' ng-minlength=4 required=true class='col s10 offset-s1' type='password' />
+        <input id='password' ng-model='user.password' ng-minlength=4 required=true class='col s10 offset-s1 login-input' type='password' />
         <label for='password' class='col s10 offset-s1 '>Password</label>
       </div>
       <div class='row'>

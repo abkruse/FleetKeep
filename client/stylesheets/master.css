@@ -121,6 +121,10 @@ h3, h4, h5{
   margin-left: 1%;
 }
 
+.login-input {
+  color: white;
+}
+
 .damRep-table {
   margin-top: 5%;
 }
