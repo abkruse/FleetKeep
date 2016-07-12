@@ -11,25 +11,25 @@
     </ul>
   </div>
 </nav>
-<div class='col' id='confirm-body'>
+<div class='col' id='review-body'>
   <div class='row'>
-    <h4 class='col s6 offset-s3'>Superviser Review Form</h4>
+    <h4 class='col s6 offset-s4'>Superviser Review Form</h4>
   </div>
   <div class='row'>
-    <h5 class='col s6 offset-s4'>Current Status: {{ctrl.report.status}}</h5>
+    <h5 class='curr-stat col s6 offset-s5'>Current Status: {{ctrl.report.status}}</h5>
   </div>
   <div class='row'>
-    <p class='col s4 offset-s1'><strong>Date Damage Reported:</strong> {{ctrl.report.created_at | date : format: short}}</p>
+    <p class='col s4 offset-s2'><strong>Date Damage Reported:</strong> {{ctrl.report.created_at | date : format: short}}</p>
     <p class='col s3'><strong>Damage Reported By Driver:</strong> {{ctrl.driver}}</p>
     <p class='col s3'><strong>Truck Damaged:</strong> {{ctrl.report.truck_id}}</p>
   </div>
   <div class='row'>
-    <p class='col s8 offset-s3'>
+    <p class='col s8 offset-s4'>
       <strong>Damage Description:</strong>{{ctrl.report.desc}}
     </p>
   </div>
   <div class='row'>
-    <canvas class='col offset-s1' id='rev-canvas' width='800' height='600'></canvas>
+    <canvas class='col offset-s2' id='rev-canvas' width='800' height='600'></canvas>
   </div>
   <div class='row'>
     <p class='col s1 offset-s3 signed-label'>

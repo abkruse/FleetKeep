@@ -26,8 +26,6 @@ h3, h4, h5{
 }
 
 .home-body {
-  background-color: RGBA(4, 15, 29, 1);
-  background-image:url('../images/truck.png');
   background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
@@ -40,7 +38,7 @@ h3, h4, h5{
 
 .home-title {
   margin-left: 1%;
-  color: RGBA(255, 255, 255, .8);
+  color: RGBA(255, 255, 255, 1);
   padding-left: 2%;
   font-family: 'Quicksand', sans-serif;
   font-weight: 300;
@@ -69,7 +67,8 @@ h3, h4, h5{
   color: RGBA(255, 255, 255, .8);
   padding-left: 1%;
   font-family: 'Didact Gothic', sans-serif;
-  font-weight: lighter;
+  font-weight: bold;
+  margin-bottom: 0;
 }
 
 .login-nav {
@@ -292,6 +291,10 @@ h3, h4, h5{
   font-size: 1.3em;
 }
 
+.curr-stat {
+  padding-left: 0;
+}
+
 @-webkit-keyframes animatetop {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
@@ -300,4 +303,26 @@ h3, h4, h5{
 @keyframes animatetop {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
+}
+
+@media screen and (max-width: 767px) {
+    #main-img{
+    	background-image: url('../images/truck-copy.png');
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .home-body{
+    	background-image: url('../images/truck.png');
+    }
+}
+@media (min-width: 992px) {
+      .home-body{
+          background-image: url('../images/truck-copy.png');
+      }
+}
+@media (min-width: 1200px) {
+     .home-body{
+         background-image: url('../images/truck.png');
+     }
 }

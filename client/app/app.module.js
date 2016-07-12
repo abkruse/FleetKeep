@@ -8,6 +8,8 @@
 
     config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider'];
 
+    // run.$inject = ['$rootScope', '$stateProvider', '$window'];
+
     function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
       $urlRouterProvider.otherwise('/');
 
@@ -61,21 +63,21 @@
         $httpProvider.interceptors.push('AuthInterceptor');
     }
 
-    // function run($rootScope, $stateProvider, $window) {
-    //  $rootScope.$on('$stateChangeStart', function (event, next, current) {
-    //
-    //    if (next.restricted && !$window.localStorage.getItem("user") ) {
-    //      if(current && current.signup){
-    //        $state.go('home');
-    //      } else if (next.restricted && $window.localStorage.getItem('user') != 1) {
-    //        $location.path('/');
-    //      }
-    //        $location.path('/#/login');
-    //    }
-    //
-    //    if (next.preventWhenLoggedIn && $window.localStorage.getItem("token")) {
-    //      $location.path('/');
-    //    }
-  //   //  });
+  //   function run($rootScope, $stateProvider, $window) {
+  //    $rootScope.$on('$stateChangeStart', function (event, next, current) {
+   //
+  //      if (next.restricted && !$window.localStorage.getItem("user") ) {
+  //        if(current && current.signup){
+  //          $state.go('home');
+  //        } else if (next.restricted && $window.localStorage.getItem('user') != 1) {
+  //          $location.path('/');
+  //        }
+  //          $location.path('/#/login');
+  //      }
+   //
+  //      if (next.preventWhenLoggedIn && $window.localStorage.getItem("token")) {
+  //        $location.path('/');
+  //      }
+  //    });
   //  };
 })();

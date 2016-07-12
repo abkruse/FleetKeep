@@ -131,6 +131,14 @@
           console.log(err);
         });
       }
+
+      ctrl.cancel = function() {
+        if(ctrl.user == 1) {
+          $state.go('dash');
+        } else {
+          $state.go('driver');
+        }
+      }
     }
 
 })();
