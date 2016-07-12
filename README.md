@@ -14,5 +14,6 @@ FleetKeep is focused on allowing a driver or other employee to login and easily 
 - Highcharts
 - Knex.js
 - PostgreSQL
+- Materialize
 
 Deployed Site: [FleetKeep](https://fleetkeep.herokuapp.com)

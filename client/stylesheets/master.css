@@ -83,27 +83,42 @@ h3, h4, h5{
   background-image:url('../images/truck.png');
 }
 
-.login-header {
-  text-align: center;
-  background-color: RGBA(118, 159, 159, 1);
-  padding-right: 1%;
-}
-
-.reg-header {
-  text-align: center;
-  background-color: RGBA(159, 198, 204, .3);
-}
-
 .login-form {
-  padding-top: 1%;
-  background-color: RGBA(246, 246, 246, .9);
-  width: 50%;
+  width: 35%;
   padding-bottom: 1%;
   border-radius: 1px;
 }
 
+.login-row, .login-header {
+  margin-bottom: 0;
+}
+
+.login-header, .reg-header {
+  color: RGB(78, 161, 152);
+  text-align: center;
+  background-color: RGB(57, 57, 57);
+  padding: 1%;
+  width: 96%;
+  margin: 0;
+  margin-left: 2%;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.form-body {
+  background-color: RGBA(1, 10, 25, .9);
+  padding: 2%;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
 .login-group {
-  margin-bottom: 2%;
+  padding: 2%;
+  margin-bottom: 0;
+}
+
+.reg-link {
+  margin-left: 1%;
 }
 
 .damRep-table {

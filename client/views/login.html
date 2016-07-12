@@ -5,61 +5,68 @@
     </div>
   </nav>
   <form ng-hide='ctrl.toggled' name='login-form' ng-submit='ctrl.login(user)' class='container login-form'>
-    <div class='row'>
-      <h4 class='col s3 offset-s2 login-header'>Login</h4>
-      <h4 ng-click='ctrl.show()'class='col s4 reg-header'>Register</h4>
+    <div class='form-header'>
+      <div class='row login-row'>
+        <h4 class='login-header'>Login</h4>
+      </div>
     </div>
     <div class='form-body'>
       <div class='row login-group'>
-        <input id='login-email' ng-model='user.email' required=true class='col s5 offset-s3' type='email' />
-        <label for='login-email' class='col s2 offset-s3'>Email</label>
+        <input ng-model='user.email' required=true class='col s10 offset-s1 login-email' type='email' />
+        <label for='login-email' class='col s10 offset-s1 login-email'>Email</label>
       </div>
       <div class='row login-group'>
-        <input id='login-password' ng-model='user.password' class='col s5 offset-s3' type='password' required=true/>
-        <label for='login-password' class='col s2 offset-s3'>Password</label>
+        <input ng-model='user.password' class='col s10 offset-s1 login-password' type='password' required=true/>
+        <label for='login-password' class='col s10 offset-s1  login-password'>Password</label>
       </div>
       <div class='row login-group'>
-        <button type='submit' class="waves-effect waves-light btn-large col s3 offset-s4">Submit</button>
+        <button type='submit' class="waves-effect waves-light btn-large col s3 offset-s3">Submit</button>
+        <p class='col s1 offset-s1'>
+          <a href='' ng-click='ctrl.show()'> Register</a>
+        </p>
       </div>
     </div>
   </form>
   <form ng-show='ctrl.toggled' name='signup-form' class='container login-form' ng-submit='ctrl.addUser(user)'>
-    <div class='row'>
-      <h4 ng-click='ctrl.show()' class='col s3 offset-s2 login-header'>Login</h4>
-      <h4 class='col s4 reg-header'>Register</h4>
+    <div class='form-header'>
+      <div class='row login-row'>
+      <h4 class='reg-header'>Register</h4>
     </div>
     <div class='form-body'>
       <div class='row login-group'>
-        <input id='first-name' ng-model='user.firstName' required=true class='col s5 offset-s3' type='text' />
-        <label for='first-name' class='col s4 offset-s3'>First Name</label>
+        <input id='first-name' ng-model='user.firstName' required=true class='col s10 offset-s1 ' type='text' />
+        <label for='first-name' class='col s10 offset-s1 '>First Name</label>
       </div>
       <div class='row login-group'>
-        <input id='last-name' ng-model='user.lastName' required=true class='col s5 offset-s3' type='text' />
-        <label for='last-name' class='col s4 offset-s3'>Last Name</label>
+        <input id='last-name' ng-model='user.lastName' required=true class='col s10 offset-s1 ' type='text' />
+        <label for='last-name' class='col s10 offset-s1 '>Last Name</label>
       </div>
       <div class='row login-group'>
-        <select id='title' class="browser-default col s5 offset-s3" ng-model='user.title' required=true>
+        <select id='title' class="browser-default col s10 offset-s1" ng-model='user.title' required=true>
           <option value="" disabled selected>Choose your option</option>
           <option value="Driver">Driver</option>
           <option value="Maintenance">Maintenance</option>
           <option value="Supervisor">Supervisor</option>
         </select>
-        <label for='title' class='col s4 offset-s3'>Job Title</label>
+        <label for='title' class='col col s10 offset-s1 '>Job Title</label>
       </div>
       <div class='row login-group'>
-        <input id='email' ng-model='user.email' ng-minlength=4 required=true class='col s5 offset-s3' type='text' />
-        <label for='email' class='col s4 offset-s3'>Email</label>
+        <input id='email' ng-model='user.email' ng-minlength=4 required=true class='col s10 offset-s1 ' type='text' />
+        <label for='email' class='col s10 offset-s1 '>Email</label>
       </div>
       <div class='row login-group'>
-        <input id='company' ng-model='user.company' ng-minlenght=4 required=true class='col s5 offset-s3' type='text' />
-        <label class='col s4 offset-s3'>Company Name</label>
+        <input id='company' ng-model='user.company' ng-minlenght=4 required=true class='col s10 offset-s1 ' type='text' />
+        <label class='col s10 offset-s1 '>Company Name</label>
       </div>
       <div class='row login-group'>
-        <input id='password' ng-model='user.password' ng-minlength=4 required=true class='col s5 offset-s3' type='password' />
-        <label for='password' class='col s4 offset-s3'>Password</label>
+        <input id='password' ng-model='user.password' ng-minlength=4 required=true class='col s10 offset-s1' type='password' />
+        <label for='password' class='col s10 offset-s1 '>Password</label>
       </div>
       <div class='row'>
         <button type='submit' class="waves-effect waves-light btn-large col s3 offset-s4">Submit</button>
+        <p class='col s1 offset-s1'>
+          <a href='' ng-click='ctrl.show()'> Login</a>
+        </p>
       </div>
     </div>
   </form>
