@@ -25,14 +25,6 @@ h3, h4, h5{
   font-family: 'Quicksand', sans-serif;
 }
 
-.confirm-btns {
-  padding-top: 1%;
-}
-
-.confirm-group {
-  font-size: 125%;
-}
-
 .home-body {
   background-color: RGBA(4, 15, 29, 1);
   background-image:url('../images/truck.png');
@@ -115,7 +107,7 @@ h3, h4, h5{
 }
 
 .damRep-table {
-  margin-top: 8%;
+  margin-top: 5%;
 }
 
 #new-report {
@@ -124,6 +116,14 @@ h3, h4, h5{
 
 .charts {
   margin-top: 2%;
+}
+
+.oos {
+  margin-top: 4%;
+}
+
+.table-head {
+  color: RGB(206, 78, 54);
 }
 
 .oos-table {
@@ -149,8 +149,8 @@ h3, h4, h5{
 }
 
 .pretrip {
-  width: 50%;
-  height: 50%;
+  width: 90%;
+  height: 90%;
 }
 
 .modal {
@@ -164,6 +164,7 @@ h3, h4, h5{
     overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
+    max-height: 100%;
 }
 
 .modal-body {
@@ -186,10 +187,81 @@ h3, h4, h5{
 
 #confirm-body {
   background-color: white;
-  width: 75%;
+  height: 842px;
+  width: 595px;
   margin-left: 12.5%;
   padding-bottom: 1%;
   margin-top: 1%;
+  box-shadow: 5px 5px 5px RGBA(53, 53, 53, .5);
+}
+
+.check-info {
+  margin-top: 0;
+  font-size: .8em;
+}
+
+.please, .header-row, .indicates-row, .confirm-data {
+  margin-bottom: 0;
+}
+
+#please, .confirm-table {
+  margin-top: 0;
+}
+
+.confirm-btns {
+  padding-top: 1%;
+}
+
+#confirm-body label {
+  font-size: 70%;
+}
+
+.confirm-table td{
+  border: 1px solid black;
+  font-size: .75em;
+}
+
+.chkbx-tbl {
+  width: 5px;
+  height: 5px;
+  padding: 1%;
+}
+
+.name-tbl {
+  width: 120px;
+  height: 5px;
+  padding: 1%;
+}
+
+.group, .confirm-data {
+  background-color: RGBA(53, 53, 53, .2);
+}
+
+#con-table td {
+  border: 1px solid black;
+}
+
+.confirm-data {
+  font-size: .5em;
+  width: 5px;
+  height: 5px;
+  padding: 1%;
+}
+
+.confirm-input {
+  font-size: .7em;
+  width: 5px;
+  height: 5px;
+  padding: 1%;
+}
+
+.last {
+  width: 30px;
+  height: 5px;
+}
+
+#ask-sig {
+  margin-top: 16%;
 }
 
 #sign-here {
@@ -197,19 +269,9 @@ h3, h4, h5{
   border-bottom: 1px solid black;
 }
 
-/*@media print {
-  body * {
-    visibility: hidden;
-  }
-  .confirm-body * {
-    visibility: visible;
-  }
-  .confirm-body {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-}*/
+.driver-info {
+  font-size: 1.3em;
+}
 
 @-webkit-keyframes animatetop {
     from {top: -300px; opacity: 0}

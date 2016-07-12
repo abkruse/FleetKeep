@@ -1,6 +1,6 @@
 <nav>
   <div class='nav-wrapper'>
-    <a href='#/' class='brand-logo'><img class='logo' src='../images/Fleetkeep-logo.png' /></a>
+    <a href='#/' class='brand-logo'>FleetKeep</a>
     <ul class='right'>
       <li class='nav-link'>
         <a href='#'>Out of Service Trucks</a>
@@ -21,12 +21,12 @@
   <highchart id="status-pie" class='col s5 offset-s1' config="ctrl.pieConfig"></highchart>
   <highchart id="damage-bar" class='col s5' config="ctrl.barConfig"></highchart>
 </div>
-<div class='row' name='oos'>
-  <h5 class='col s6 offset-s1'>Out of Service Vehicles</h5>
+<div class='row'>
+  <h5 class='oos table-head col s6 offset-s1'>Out of Service Vehicles</h5>
   <div class='form-group'>
-    <p class='col s1 offset-s1'>View By:</p>
+    <p class='oos col s1 offset-s1'>View By:</p>
   </div>
-  <select class="browser-default col s2" ng-model='ctrl.selectionOut'>
+  <select class="oos browser-default col s2" ng-model='ctrl.selectionOut'>
     <option value="" disabled selected>Choose your option</option>
     <option value='driver_id'>Driver ID</option>
     <option value='truck_id'>Truck ID</option>
@@ -81,7 +81,7 @@
   <highchart id="status-line" class='col s6' config="ctrl.lineConfig"></highchart>
 </div> -->
 <div class='row damRep-table' id='dam-table'>
-  <h5 class='col s4 offset-s1'>Vehicles with Current Damage Reports</h5>
+  <h5 class='table-head col s4 offset-s1'>Vehicles with Current Damage Reports</h5>
   <div class='form-group'>
     <label class='col s1' for='select'>View By:</label>
   </div>
@@ -149,3 +149,8 @@
     </tbody>
   </table>
 </div>
+<footer class='row'>
+  <p class='col s1 offset-s5'>
+    	&copy; FleetKeep
+  </p>
+</footer>

@@ -9,12 +9,23 @@
 
     function DashCtrl(DashFactory, $state, $window) {
       var ctrl = this;
+      var modal = document.getElementById('driverModal');
 
       ctrl.user = DashFactory.getUser();
 
       ctrl.logout = function() {
         $window.localStorage.clear();
         $state.go('home');
+      }
+
+      ctrl.help = function() {
+        modal.style.display = "block";
+      }
+
+      $window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
       }
 
       DashFactory.getLatestDamages().then( function(reports) {
@@ -43,53 +54,6 @@
       }).catch( function(err) {
         console.log(err);
       });
-
-      // ctrl.lineConfig = {
-      //   options: {
-      //     chart: {
-      //       type: 'line',
-      //       events: {
-      //         load: function(event) {
-      //           console.log(this);
-      //         }
-      //       }
-      //     }
-      //   },
-      //   tooltip: {
-      //     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-      //   },
-      //   yAxis: {
-      //     title: {
-      //       text: 'Trucks'
-      //     },
-      //     plotLines: [{
-      //       value: 0,
-      //       width: 1,
-      //       color: '#808080'
-      //     }]
-      //   },
-      //   xAxis: {
-      //     categories: []
-      //   },
-      //   plotOptions: {
-      //
-      //   },
-      //   data: {
-      //     complete: function(options) {
-      //       DashFactory.getLines().then( (data) => {
-      //         data.forEach(function(data) {
-      //           ctrl.lineConfig.series[0].data.push(data);
-      //         })
-      //       })
-      //     }()
-      //   },
-      //   series: {
-      //
-      //   },
-      //   title: {
-      //     text: 'Fleet Health Past 30 Days'
-      //   }
-      // }
 
       ctrl.pieConfig = {
         options: {

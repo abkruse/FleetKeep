@@ -1,6 +1,6 @@
 <nav>
   <div class='nav-wrapper'>
-    <a href='#/driver' class='brand-logo'><img class='logo' src='../images/Fleetkeep-logo.png' /></a>
+    <a href='#/driver' class='brand-logo'>FleetKeep</a>
     <ul class='right'>
       <li>
         <a href='#'>Settings</a>
@@ -31,7 +31,7 @@
     <input class='col s4 offset-s3' type='number' ng-model='report.odo_num' required=true/>
   </div>
   <div class='row'>
-    <button ng-click='ctrl.begin(report.truck_id)' class="waves-effect waves-light btn-large col s2 offset-s4">Begin</button>
+    <button ng-click='ctrl.begin(report.truck_id)' class="waves-effect waves-light btn btn-large col s2 offset-s4">Begin</button>
   </div>
 </form>
 <div class='dvir row'>
@@ -208,7 +208,9 @@
 </div>
 <div class='row'>
   <h4 class='col s6 offset-s3'>Input Any Unmarked Damage</h4>
-  <canvas class='col s8 offset-s2' id='canvas' width='800' height="600" ng-click='ctrl.markDamage($event, report.truck_id)'></canvas>
+  <div class='col s8 offset-s2'>
+    <canvas id='canvas' width='800' height="600" ng-click='ctrl.markDamage($event, report.truck_id)'></canvas>
+  </div>
 </div>
 <div id="repModal" class="modal row">
   <div class="modal-content">
@@ -235,3 +237,8 @@
   <button ng-click='ctrl.submitReport(report)' class="waves-effect waves-light btn-large col s2 offset-s3">Submit</button>
   <a ng-href='#/dash' class="waves-effect waves-light btn-large col s2 offset-s1">Cancel</a>
 </div>
+<footer class='row'>
+  <p class='col s1 offset-s5'>
+    	&copy; FleetKeep
+  </p>
+</footer>

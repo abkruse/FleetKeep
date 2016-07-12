@@ -1,6 +1,6 @@
 <nav>
   <div class='nav-wrapper'>
-    <a href='#/driver' class='brand-logo'><img class='logo' src='../images/Fleetkeep-logo.png' /></a>
+    <a href='#/driver' class='brand-logo'>FleetKeep</a>
     <ul class='right'>
       <li>
         <a href='#'>Settings</a>
@@ -11,190 +11,230 @@
     </ul>
   </div>
 </nav>
-<div class='col' id='confirm-body'>
-  <div class='row'>
-    <div class='col s10 offset-s1'>
-      <div class='row'>
-        <h4 class='col s8 offset-s2'>Driver Daily Pre-Trip Report</h4>
-      </div>
-      <div class='row'>
-        <p class='col s4 offset-s4'>PLEASE REVIEW AND SIGN</p>
-      </div>
-      <div class='row'>
-        <div class='confirm-group col s4'>
-          <label for='date'>Date of Report: </label>
-          {{ctrl.reported.created_at | date : format: short}}
+<div class='row'>
+  <div class='col s10 offset-s1' id='confirm-body'>
+    <div class='row'>
+      <div class='col s10 offset-s1'>
+        <div class='row header-row'>
+          <h5 class='col s10 offset-s1' id='confirm-header'>Driver Daily Pre-Trip Report</h5>
         </div>
-        <div class='confirm-group col s4'>
-          <label for='name'>Driver Name: </label>
-           {{ctrl.user.firstName}} {{ctrl.user.lastName}}
+        <div class='row please'>
+          <p class='col s9 offset-s3' id='please '>PLEASE REVIEW AND SIGN</p>
         </div>
-        <div class='confirm-group col s4'>
-          <label for='company'>Company: </label>
-          {{ctrl.company.company}}
-        </div>
-      </div>
-      <div class='row'>
-        <div class='confirm-group col s4'>
-          <label for='truck'>Truck Number: </label>
-          {{ctrl.reported.truck_id}}
-        </div>
-        <div class='confirm-group col s4'>
-          <label for='odometer'>Odometer Reading: </label>
-          {{ctrl.reported.odo_num}}
-        </div>
-        <div class='confirm-group col s4'>
-          <label for='dvir'>Completed DVIR? </label>
-          {{ctrl.reported.dvir_bool}}
+        <div class='row'>
+          <table class='col s12' id='con-table'>
+            <tr>
+              <td class='confirm-data'  id='confirm-date'>
+                Date of Report:
+              </td>
+              <td class='confirm-input'>
+                {{ctrl.reported.created_at | date : format: short}}
+              </td>
+              <td class='confirm-data'  id='confirm-driver'>
+                Driver Name:
+              </td>
+              <td class='confirm-input'>
+                {{ctrl.user.firstName}} {{ctrl.user.lastName}}
+              </td>
+              <td class='confirm-data'  id='confirm-truck'>
+                Truck No.
+              </td>
+              <td class='confirm-input'>
+                {{ctrl.reported.truck_id}}
+              </td>
+            </tr>
+            <tr>
+              <td class='confirm-data'  id='confirm-comp'>
+                Company:
+              </td>
+              <td class='confirm-input'>
+                {{ctrl.company.company}}
+              </td>
+              <td class='confirm-data'  id='confirm-odo'>
+                Odometer Reading:
+              </td>
+              <td class='confirm-input last'>
+                {{ctrl.reported.odo_num}}
+              </td>
+              <td class='confirm-data'  id='confirm-dvir'>
+                Completed DVIR?
+              </td>
+              <td class='confirm-input last'>
+                {{ctrl.reported.dvir_bool}}
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
-  </div>
-  <div class='row'>
-    <form class='col s10 offset-s2'>
-      <div class='row'>
-        <p class='col s8 offset-s1'>
-          Checked box indicates inspection completed and no issue found
-        </p>
+    <div class='row indicates-row'>
+      <p class='check-info col s8 offset-s2'>
+        Checked box indicates inspection completed and no issue found
+      </p>
+    </div>
+    <div class='row checked-table'>
+      <table class='confirm-table col s10 offset-s1'>
+        <tr class='row'>
+          <td class='chkbx-tbl'></td>
+          <td class='group name-tbl'>
+            ENGINE
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Mirrors
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Differential
+          </td>
+        </tr>
+        <tr class='row'>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl' id='engine'>
+            Fluid Levels
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Tires & Wheels
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Emergency
+          </td>
+        </tr>
+        <tr class='row'>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Belts & Hose
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Tires & Wheels
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Emergency Equip
+          </td>
+        </tr>
+        <tr class='row'>
+          <td class='chkbx-tbl'></td>
+          <td class='name-tbl group'>
+            EXTERIOR
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Locks
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Windows & Wipers
+          </td>
+        </tr>
+        <tr class='row'>
+          <td class='chkbx-tbl'><i class="material-icons">done</i</td>
+          <td class='name-tbl'>
+            Lights
+          </td>
+          <td class='chkbx-tbl'></td>
+          <td class='name-tbl group'>
+            Cab
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Gauges & Indicators
+          </td>
+        </tr>
+        <tr class='row'>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Reflectors
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Horn(s)
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Seat Belts
+          </td>
+        </tr>
+        <tr class='row'>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Fuel Tanks
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Heater/Defroster
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Battery
+          </td>
+        </tr>
+        <tr class='row'>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Air/Elect. Lines
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Transmission
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Exhaust
+          </td>
+        </tr>
+        <tr class='row'>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Brakes & Drum
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Panel Lights
+          </td>
+          <td class='chkbx-tbl'></td>
+          <td class='name-tbl group'>
+            Other
+          </td>
+        </tr>
+        <tr class='row'>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Splash Guard
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Clutch
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Fifth Wheel
+          </td>
+        </tr>
+        <tr class='row'>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Springs & Shocks
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Brake System
+          </td>
+          <td class='chkbx-tbl'><i class="material-icons">done</i></td>
+          <td class='name-tbl'>
+            Landing Gear
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class='row'>
+      <div class='col s10 offset-s1'>
+        <p id='ask-sig' class='col s3'>Sign Here:</p>
+        <canvas class='col s8' id='sign-here'></canvas>
       </div>
-      <div class='row'>
-        <div class='container col s3'>
-          <label for='engine'>Engine Compartment</label>
-          <p>
-            <input class='engine' type="checkbox" id="fluid-levels" checked/>
-            <label for="fluid-levels">Fluid Levels</label>
-          </p>
-          <p>
-            <input class='engine' type="checkbox" id="Belts" checked/>
-            <label for="Belts">Belts & Hose</label>
-          </p>
-          <p>
-            <input class='engine' type="checkbox" id="leaks" checked/>
-            <label for="leaks">Fluid Leaks</label>
-          </p>
-          <label for='exterior'>Exterior</label>
-          <p>
-            <input class='exterior' type="checkbox" id="lights" checked/>
-            <label for="lights">Lights</label>
-          </p>
-          <p>
-            <input class='exterior' type="checkbox" id="reflectors" checked/>
-            <label for="reflectors">Reflectors</label>
-          </p>
-          <p>
-            <input class='exterior' type="checkbox" id="fuel-tanks" checked/>
-            <label for="fuel-tanks">Fuel Tanks</label>
-          </p>
-          <p>
-            <input class='exterior' type="checkbox" id="lines" checked/>
-            <label for="lines">Air/Elect Lines</label>
-          </p>
-          <p>
-            <input class='exterior' type="checkbox" id="brakes" checked/>
-            <label for="brakes">Brakes & Drum</label>
-          </p>
-          <p>
-            <input class='exterior' type="checkbox" id="splash" checked/>
-            <label for="splash">Splash Guard</label>
-          </p>
-          <p>
-            <input class='exterior' type="checkbox" id="springs" checked/>
-            <label for="springs">Springs & Shocks</label>
-          </p>
-        </div>
-        <div class='container col s3'>
-          <p>
-            <input class='exterior' type="checkbox" id="mirrors" checked/>
-            <label for="mirrors">Mirrors</label>
-          </p>
-          <p>
-            <input class='exterior' type="checkbox" id="tires" checked/>
-            <label for="tires">Tires & Wheels</label>
-          </p>
-          <p>
-            <input class='exterior' type="checkbox" id="body" checked/>
-            <label for="body">Body, Doors, & Locks</label>
-          </p>
-          <label for='cab'>Cab</label>
-          <p>
-            <input class='cab' type="checkbox" id="horn" checked/>
-            <label for="horn">Horn(s)</label>
-          </p>
-          <p>
-            <input class='cab' type="checkbox" id="steering" checked/>
-            <label for="steering">Steering</label>
-          </p>
-          <p>
-            <input class='cab' type="checkbox" id="heating" checked/>
-            <label for="heating">Heater/Defroster</label>
-          </p>
-          <p>
-            <input class='cab' type="checkbox" id="trans" checked/>
-            <label for="trans">Transmission</label>
-          </p>
-          <p>
-            <input class='cab' type="checkbox" id="panel_lights" checked/>
-            <label for="panel_lights">Panel Lights</label>
-          </p>
-          <p>
-            <input class='cab' type="checkbox" id="clutch" checked/>
-            <label for="clutch">Clutch</label>
-          </p>
-          <p>
-            <input class='cab' type="checkbox" id="brake" checked/>
-            <label for="brake">Brake System</label>
-          </p>
-        </div>
-        <div class='container col s3'>
-          <p>
-            <input class='cab' type="checkbox" id="diff" checked/>
-            <label for="diff">Differential</label>
-          </p>
-          <p>
-            <input class='cab' type="checkbox" id="emergency" checked/>
-            <label for="emergency">Emergency Equip.</label>
-          </p>
-          <p>
-            <input class='cab' type="checkbox" id="windows" checked/>
-            <label for="windows">Windows & Wipers</label>
-          </p>
-          <p>
-            <input class='cab' type="checkbox" id="gauges_indicators" checked/>
-            <label for="gauges_indicators">Gauges & Indicators</label>
-          </p>
-          <p>
-            <input class='cab' type="checkbox" id="seat_belts" checked/>
-            <label for="seat_belts">Seat Belts</label>
-          </p>
-          <p>
-            <input class='cab' type="checkbox" id="battery" checked/>
-            <label for="battery">Battery</label>
-          </p>
-          <p>
-            <input class='cab' type="checkbox" id="exhaust" checked/>
-            <label for="exhaust">Exhaust</label>
-          </p>
-          <label for='other'>Other</label>
-          <p>
-            <input class='other' type="checkbox" id="fifth" checked/>
-            <label for="fifth">Fifth Wheel</label>
-          </p>
-          <p>
-            <input class='other' type="checkbox" id="landing" checked/>
-            <label for="landing">Landing Gear</label>
-          </p>
-          <p>
-            <input class='other' type="checkbox" id="pin" checked/>
-            <label for="pin">King Pin</label>
-          </p>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div class='row'>
-    <div class='col s10 offset-s2'>
-      <p class='col s2'>Sign Here:</p>
-      <canvas class='col s6' id='sign-here'></canvas>
     </div>
   </div>
 </div>

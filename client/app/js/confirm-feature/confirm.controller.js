@@ -22,7 +22,6 @@
       });
 
       ctrl.getCompany = function(id) {
-        console.log(id);
         ConfirmFactory.getCompany(id).then( function(data) {
           ctrl.company = data;
         }).catch( function(err) {

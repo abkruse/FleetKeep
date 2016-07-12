@@ -1,10 +1,7 @@
 <nav>
   <div class='nav-wrapper'>
-    <a href='#/driver' class='brand-logo'><img class='logo' src='../images/Fleetkeep-logo.png' /></a>
+    <a href='#/driver' class='brand-logo'>FleetKeep</a>
     <ul class='right'>
-      <li>
-        <a href='#'>Settings</a>
-      </li>
       <li ng-click='ctrl.logout()'>
         <a href='#'>Logout</a>
       </li>
@@ -12,12 +9,13 @@
   </div>
 </nav>
 <div class='row'>
-  <p class='col s8 offset-s2'>Prior to each trip, please walk around your vehicle to ensure that all components of your vehicle are in proper, working order. While completing this walk around, mark each element as reviewed and include any damage reports previously unsubmitted. <strong>If you witness any issues during the inspection which would compromise the safety of you and the vehicle, please report it to your inspector in-person immediately.</strong></p>
+  <p class='driver-info col s8 offset-s2'>Prior to each trip, please walk around your vehicle to ensure that all components of your vehicle are in proper, working order. While completing this walk around, mark each element as reviewed and include any damage reports previously unsubmitted. <strong>If you witness any issues during the inspection which would compromise the safety of you and the vehicle, please report it to your inspector in-person immediately.</strong></p>
 
   <p class='col s6 offset-s3'>For more information on how to complete a pre-trip inspection, please see below</p>
 </div>
 <div class='row'>
   <a href='/#/report'><button id='new-report' class="waves-effect waves-light btn-large col s3 offset-s4">New Pre-Trip Inspection</button></a>
+  <a ng-click='ctrl.help()' class="btn-floating waves-effect waves-light red s1 offset-s1"><i class="material-icons">info_outline</i></a>
 </div>
 <div class='row'>
   <div class='row' id='oos-driver'>
@@ -74,6 +72,15 @@
     </table>
   </div>
 </div>
-<div class='row'>
-  <img class='pretrip' src='../images/pretrip.png' />
+<div id="driverModal" class="modal row">
+  <div class="modal-content">
+    <div class='modal-body'>
+      <img class='pretrip' src='../images/pretrip.png' />
+    </div>
+  </div>
 </div>
+<footer class='row'>
+  <p class='col s1 offset-s5'>
+    	&copy; FleetKeep
+  </p>
+</footer>
