@@ -5,9 +5,9 @@
     .module('fleetkeep')
     .controller('ReportCtrl', ReportCtrl);
 
-    ReportCtrl.$inject= ['ReportFactory', '$state'];
+    ReportCtrl.$inject= ['ReportFactory', '$state', '$window'];
 
-    function ReportCtrl(ReportFactory, $state) {
+    function ReportCtrl(ReportFactory, $state, $window) {
       var ctrl = this;
       var modal = document.getElementById('repModal');
 

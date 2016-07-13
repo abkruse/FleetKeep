@@ -293,7 +293,7 @@ h3, h4, h5{
 }
 
 .curr-stat {
-  padding-left: 0;
+  margin-left: 10%;
 }
 
 @-webkit-keyframes animatetop {
@@ -305,12 +305,6 @@ h3, h4, h5{
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
 }
-
-/*@media only screen and (min-device-width: 768px){
-  .home-body {
-    background-image: url('../images/truck-copy.png');
-  }
-}*/
 
 @media screen and (max-width: 1024px) {
     .home-body{
@@ -329,13 +323,3 @@ h3, h4, h5{
     background-image: url('../images/truck-big.png');
   }
 }
-/*@media (min-width: 992px) {
-      .home-body{
-          background-image: url('../images/truck-copy.png');
-      }
-}
-@media (min-width: 1200px) {
-     .home-body{
-         background-image: url('../images/truck.png');
-     }
-}*/

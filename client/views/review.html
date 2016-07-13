@@ -13,13 +13,13 @@
 </nav>
 <div class='col' id='review-body'>
   <div class='row'>
-    <h4 class='col s6 offset-s4'>Superviser Review Form</h4>
+    <h4 class='col s6 offset-s4'>Supervisor Review Form</h4>
   </div>
   <div class='row'>
-    <h5 class='curr-stat col s6 offset-s5'>Current Status: {{ctrl.report.status}}</h5>
+    <h5 class='curr-stat col s6 offset-s5'>Status: {{ctrl.report.status}}</h5>
   </div>
   <div class='row'>
-    <p class='col s4 offset-s2'><strong>Date Damage Reported:</strong> {{ctrl.report.created_at | date : format: short}}</p>
+    <p class='col s3 offset-s2'><strong>Date Damage Reported:</strong> {{ctrl.report.created_at | date : format: short}}</p>
     <p class='col s3'><strong>Damage Reported By Driver:</strong> {{ctrl.driver}}</p>
     <p class='col s3'><strong>Truck Damaged:</strong> {{ctrl.report.truck_id}}</p>
   </div>

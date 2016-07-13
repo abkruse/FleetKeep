@@ -96,6 +96,7 @@
         series: [{
           type: 'pie',
           name: 'Trucks',
+          innerSize: '50%',
           data: []
         }],
 
