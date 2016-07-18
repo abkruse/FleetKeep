@@ -44,16 +44,6 @@
           });
         },
 
-        // getLines: function() {
-        //   return $http.get(url + 'dash/damages').then( (data) => {
-        //     const known = data.data;
-        //     const returned = [{'name': 'Reviewed', data: []}, {'name': 'Pending', data: []}, {'name': 'Out of Service', data: []}];
-        //
-        //
-        //     console.log(known);
-        //   });
-        // },
-
         getBars: function() {
           return $http.get(url + 'dash/damages').then( function(data) {
             var reported = data.data;

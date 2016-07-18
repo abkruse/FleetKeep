@@ -8,7 +8,6 @@
     ReportFactory.$inject = ['$http', '$window'];
 
     function ReportFactory($http, $window) {
-      // var url = 'http://localhost:3000/'
       var url = 'https://fleetkeep.herokuapp.com/';
 
       return {

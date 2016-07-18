@@ -9,7 +9,6 @@
 
     function ReviewFactory($http, $window) {
       var url = 'https://fleetkeep.herokuapp.com/';
-      // var url = 'http://localhost:3000/';
 
       return{
         getUser: function() {
