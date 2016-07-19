@@ -14,4 +14,6 @@ FleetKeep is focused on allowing a driver or other employee to login and easily 
 - PostgreSQL
 - Materialize
 
+[Video presentation of project](https://www.youtube.com/watch?v=rHVPW_xlAvI&list=PLM_i0obccy3un-9j53tz1wiC28a4Asi99&index=15)
+
 Deployed Site: [FleetKeep](https://fleetkeep.herokuapp.com)
