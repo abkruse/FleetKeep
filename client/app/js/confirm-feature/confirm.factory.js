@@ -8,7 +8,6 @@
     ConfirmFactory.$inject = ['$http', '$window'];
 
     function ConfirmFactory ($http, $window) {
-      // var url = 'http://localhost:3000/'
       var url = 'https://fleetkeep.herokuapp.com/';
 
       return {
